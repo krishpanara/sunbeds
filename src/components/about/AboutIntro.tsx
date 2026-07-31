@@ -1,0 +1,38 @@
+import Image from "next/image";
+
+export default function AboutIntro() {
+  return (
+    <section className="relative overflow-hidden bg-white py-20">
+      <Image
+        src="/images/lines-pattern.webp"
+        alt=""
+        fill
+        aria-hidden
+        className="pointer-events-none object-cover opacity-[0.06]"
+        sizes="100vw"
+      />
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:px-10">
+        <div>
+          <h1 className="text-2xl font-bold text-[#0b0e1a] sm:text-3xl">ABOUT US</h1>
+          <p className="mt-5 max-w-lg text-[#0b0e1a]/60">
+            Sunbeds was founded with a bold vision: to transform the future of
+            hotel distribution. By connecting hotels and distribution partners
+            through one intelligent platform, we simplify global connectivity,
+            unlock new opportunities, and empower independent hotels and
+            resorts and help the hospitality industry grow with confidence.
+          </p>
+        </div>
+
+        <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl shadow-lg">
+          <Image
+            src="/images/about-satellite.webp"
+            alt="Satellite orbiting Earth, representing global connectivity"
+            fill
+            className="object-cover"
+            sizes="(min-width: 1024px) 520px, 90vw"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
