@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function PartnersHero() {
   return (
-    <section className="relative overflow-hidden bg-white py-16">
+    <section className="relative overflow-hidden bg-white pt-40 pb-16">
       <Image
         src="/images/lines-pattern.webp"
         alt=""

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const hotelChains = [
   { src: "/images/chain-el-pueblo.png", alt: "El Pueblo de Hermano Resort and Events" },
-  { src: "/images/chain-melia.png", alt: "Melia Hotel" },
+  { src: "/images/chain-melia.png", alt: "Melia Hotel", dark: true },
   { src: "/images/chain-cocotel.png", alt: "Cocotel Group" },
   { src: "/images/chain-brittany.png", alt: "Brittany Hotel Villar City" },
   { src: "/images/chain-seamaster.png", alt: "Sea Master Beach Resort" },
@@ -27,15 +27,13 @@ export default function PartnerLogoStrips() {
           {hotelChains.map((logo) => (
             <div
               key={logo.alt}
-              className="flex h-20 w-36 items-center justify-center rounded-xl bg-white p-3 shadow-sm"
+              className={`flex h-20 w-36 items-center justify-center rounded-xl p-3 shadow-sm ${
+                logo.dark ? "bg-[#0b0e1a]" : "bg-white"
+              }`}
             >
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={140}
-                height={70}
-                className="max-h-14 w-auto object-contain"
-              />
+              <span className="relative block h-full w-full">
+                <Image src={logo.src} alt={logo.alt} fill className="object-contain" sizes="140px" />
+              </span>
             </div>
           ))}
         </div>
@@ -43,16 +41,11 @@ export default function PartnerLogoStrips() {
         <h3 className="mt-16 text-xl font-bold text-[#0b0e1a]">
           Integrated with <span className="text-[#f5821f]">Tech Partners</span>
         </h3>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-8">
           {techPartners.map((logo) => (
-            <Image
-              key={logo.alt}
-              src={logo.src}
-              alt={logo.alt}
-              width={160}
-              height={70}
-              className="h-9 w-auto object-contain sm:h-10"
-            />
+            <span key={logo.alt} className="relative block h-9 w-32 sm:h-10 sm:w-36">
+              <Image src={logo.src} alt={logo.alt} fill className="object-contain" sizes="144px" />
+            </span>
           ))}
         </div>
       </div>

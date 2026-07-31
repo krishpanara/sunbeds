@@ -1,11 +1,28 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+const fontBody = localFont({
+  src: "../fonts/MyriadPro-Regular.otf",
+  variable: "--font-body",
+  display: "swap",
+});
+
+const fontHeading = localFont({
+  src: [
+    { path: "../fonts/AcuminVariableConcept.otf", weight: "200 900", style: "normal" },
+  ],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const fontHelvetica = localFont({
+  src: [
+    { path: "../fonts/Helvetica.ttf", weight: "400", style: "normal" },
+    { path: "../fonts/Helvetica-Bold.ttf", weight: "700", style: "normal" },
+  ],
+  variable: "--font-helvetica",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -20,7 +37,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable} antialiased`}>
+    <html
+      lang="en"
+      className={`${fontBody.variable} ${fontHeading.variable} ${fontHelvetica.variable} antialiased`}
+    >
       <body
         className="min-h-screen flex flex-col bg-white text-[#171717]"
         suppressHydrationWarning

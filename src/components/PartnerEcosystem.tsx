@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 const partners = [
-  { src: "/images/partner-hotelbeds.png", alt: "hotelbeds", width: 382, height: 54 },
-  { src: "/images/partner-airbnb.png", alt: "airbnb", width: 270, height: 85 },
-  { src: "/images/partner-agoda.png", alt: "agoda", width: 229, height: 92 },
-  { src: "/images/partner-tripcom.png", alt: "Trip.com", width: 362, height: 88 },
-  { src: "/images/partner-booking.png", alt: "Booking.com", width: 441, height: 74 },
+  { src: "/images/partner-hotelbeds.png", alt: "hotelbeds", width: 400, height: 56 },
+  { src: "/images/partner-airbnb.png", alt: "airbnb", width: 400, height: 125 },
+  { src: "/images/partner-agoda.png", alt: "agoda", width: 400, height: 159 },
+  { src: "/images/partner-tripcom.png", alt: "Trip.com", width: 400, height: 96 },
+  { src: "/images/partner-booking.png", alt: "Booking.com", width: 500, height: 83 },
 ];
 
 export default function PartnerEcosystem() {

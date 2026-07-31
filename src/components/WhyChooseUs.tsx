@@ -1,9 +1,18 @@
-import { GlobalReachIcon, OneContractIcon, OneTechIcon } from "./icons";
+import IconBadge from "./partners/IconBadge";
 
 const reasons = [
-  { icon: <OneContractIcon />, title: "One Contract" },
-  { icon: <GlobalReachIcon />, title: "Global expansion, Global reach" },
-  { icon: <OneTechIcon />, title: "One Technology" },
+  {
+    icon: "/images/icon-direct-contract.png",
+    lines: ["One Contract", "One Contact", "One Pricing", "One Technology"],
+  },
+  {
+    icon: "/images/icon-gain-visibility.png",
+    lines: ["Global Expansion", "Global Reach", "Global Distribution"],
+  },
+  {
+    icon: "/images/icon-grow.png",
+    lines: ["Maximize Hotel Revenue", "Maximize Hotel Occupancy", "Maximize Hotel's Ecommerce Business"],
+  },
 ];
 
 export default function WhyChooseUs() {
@@ -17,13 +26,17 @@ export default function WhyChooseUs() {
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
           {reasons.map((r) => (
             <div
-              key={r.title}
+              key={r.lines[0]}
               className="flex flex-col items-center gap-4 rounded-2xl border border-[#f5821f]/30 px-6 py-10"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#f5821f]/10">
-                {r.icon}
+              <IconBadge src={r.icon} size={56} />
+              <div className="flex flex-col gap-1">
+                {r.lines.map((line) => (
+                  <p key={line} className="font-semibold text-[#0b0e1a]">
+                    {line}
+                  </p>
+                ))}
               </div>
-              <p className="font-semibold text-[#0b0e1a]">{r.title}</p>
             </div>
           ))}
         </div>

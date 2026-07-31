@@ -29,10 +29,10 @@ export default function Fingertips() {
           </div>
         </div>
 
-        <div className="relative mx-auto aspect-square w-full max-w-md">
+        <div className="relative mx-auto aspect-3/2 w-full max-w-md">
           <Image
-            src="/images/devices-mockup.png"
-            alt="Sunbeds platform displayed across desktop, tablet, and mobile"
+            src="/images/fingertips-diagram.png"
+            alt="One platform connecting potential guests, OTAs, and hotels through a single contract"
             fill
             className="object-contain"
             sizes="(min-width: 1024px) 480px, 90vw"

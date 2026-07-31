@@ -5,26 +5,22 @@ import { useState } from "react";
 import Logo from "./Logo";
 
 const links = [
+  { href: "/distribution-partners", label: "Distribution Solutions" },
+  { href: "/tech-partners", label: "Tech Partners" },
   { href: "/about", label: "About us" },
   { href: "/contact", label: "Contact us" },
-  { href: "/distribution-partners", label: "Distribution Partners" },
-  { href: "/hotels", label: "Hotels" },
-  { href: "/tech-partners", label: "Tech Partners" },
 ];
 
 type NavbarProps = {
-  transparent?: boolean;
+  theme?: "dark" | "light";
 };
 
-export default function Navbar({ transparent }: NavbarProps) {
+export default function Navbar({ theme = "light" }: NavbarProps) {
   const [open, setOpen] = useState(false);
+  const isDark = theme === "dark";
 
   return (
-    <header
-      className={`z-30 w-full ${
-        transparent ? "absolute top-0 left-0 bg-transparent" : "relative bg-white"
-      }`}
-    >
+    <header className="absolute inset-x-0 top-0 z-30 w-full bg-transparent">
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 lg:px-10">
         <Link href="/" onClick={() => setOpen(false)}>
           <Logo />
@@ -32,7 +28,7 @@ export default function Navbar({ transparent }: NavbarProps) {
 
         <ul
           className={`hidden items-center gap-6 text-xs font-semibold tracking-wide lg:flex ${
-            transparent ? "text-white" : "text-[#0b0e1a]"
+            isDark ? "text-white" : "text-[#0b0e1a]"
           }`}
         >
           {links.map((link) => (
@@ -68,7 +64,7 @@ export default function Navbar({ transparent }: NavbarProps) {
           aria-label="Toggle menu"
           aria-expanded={open}
           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors lg:hidden ${
-            transparent ? "border-white/60 text-white" : "border-[#0b0e1a]/20 text-[#0b0e1a]"
+            isDark ? "border-white/60 text-white" : "border-[#0b0e1a]/40 text-[#0b0e1a]"
           }`}
         >
           <svg
@@ -89,8 +85,8 @@ export default function Navbar({ transparent }: NavbarProps) {
       </nav>
 
       {open && (
-        <div className="absolute inset-x-0 top-full z-40 border-t border-black/5 bg-white shadow-lg lg:hidden">
-          <ul className="flex flex-col gap-1 px-6 py-4 text-sm font-semibold text-[#0b0e1a]">
+        <div className="absolute inset-x-0 top-full z-40 border-t border-white/10 bg-[#0b0e1a] shadow-lg lg:hidden">
+          <ul className="flex flex-col gap-1 px-6 py-4 text-sm font-semibold text-white">
             {links.map((link) => (
               <li key={link.href}>
                 <Link
@@ -103,7 +99,7 @@ export default function Navbar({ transparent }: NavbarProps) {
               </li>
             ))}
           </ul>
-          <div className="flex items-center gap-3 border-t border-black/5 px-6 py-4">
+          <div className="flex items-center gap-3 border-t border-white/10 px-6 py-4">
             <Link
               href="/login"
               onClick={() => setOpen(false)}

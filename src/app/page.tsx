@@ -5,6 +5,7 @@ import Fingertips from "@/components/Fingertips";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import HotelsSection from "@/components/HotelsSection";
+import Navbar from "@/components/Navbar";
 import Newsletter from "@/components/Newsletter";
 import PartnerEcosystem from "@/components/PartnerEcosystem";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -12,6 +13,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 export default function Home() {
   return (
     <>
+      <Navbar theme="dark" />
       <main className="flex-1">
         <Hero />
         <Fingertips />

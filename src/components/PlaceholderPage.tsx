@@ -13,7 +13,7 @@ export default function PlaceholderPage({ title, description }: PlaceholderPageP
     <>
       <Navbar />
       <main className="flex-1">
-        <section className="relative overflow-hidden py-24">
+        <section className="relative overflow-hidden pt-40 pb-24">
           <Image
             src="/images/lines-pattern.webp"
             alt=""

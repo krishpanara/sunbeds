@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AboutIntro() {
   return (
-    <section className="relative overflow-hidden bg-white py-20">
+    <section className="relative overflow-hidden bg-white pt-40 pb-20">
       <Image
         src="/images/lines-pattern.webp"
         alt=""

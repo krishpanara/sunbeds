@@ -12,12 +12,22 @@
   --color-foreground: var(--foreground);
   --color-sunbeds-orange: var(--sunbeds-orange);
   --color-sunbeds-dark: var(--sunbeds-dark);
-  --font-sans: var(--font-poppins);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), var(--font-body), Arial, sans-serif;
 }
 

@@ -3,20 +3,18 @@ import Link from "next/link";
 import Logo from "./Logo";
 
 const footerLinks = [
-  { href: "/hotels", label: "Hotels" },
-  { href: "/distribution-partners", label: "Distribution Partners" },
-  { href: "/tech-partners", label: "Tech Partners" },
+  { href: "/distribution-partners", label: "Distribution Solutions" },
+  { href: "/tech-partners", label: "Our Tech Partners" },
   { href: "/faqs", label: "FAQs" },
-  { href: "/success-cases", label: "Success Cases" },
-  { href: "/contact", label: "Contact" },
-  { href: "/announcements", label: "Company Announcements" },
+  { href: "/contact", label: "Contact Us" },
+  { href: "/about", label: "About Us" },
 ];
 
 const socials = [
-  { href: "https://facebook.com", label: "Facebook", icon: "social-facebook-glyph" },
-  { href: "https://linkedin.com", label: "LinkedIn", icon: "social-linkedin-glyph" },
-  { href: "https://instagram.com", label: "Instagram", icon: "social-instagram-glyph" },
-  { href: "https://youtube.com", label: "YouTube", icon: "social-youtube-glyph" },
+  { href: "https://facebook.com", label: "Facebook", icon: "social-facebook-white" },
+  { href: "https://linkedin.com", label: "LinkedIn", icon: "social-linkedin-white" },
+  { href: "https://instagram.com", label: "Instagram", icon: "social-instagram-white" },
+  { href: "https://youtube.com", label: "YouTube", icon: "social-youtube-white" },
 ] as const;
 
 export default function Footer() {
@@ -29,8 +27,8 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col items-center gap-3 text-center">
-            <p className="text-base">+34 123 456 789</p>
-            <p className="text-base">Email@Sunbeds.com</p>
+            <p className="text-base">Phone +639171212626</p>
+            <p className="text-base">support@sunbedstechnology.com</p>
             <div className="mt-2 flex gap-3">
               {socials.map((s) => (
                 <a
