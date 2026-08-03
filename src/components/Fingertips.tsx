@@ -40,5 +40,6 @@ export default function Fingertips() {
         </div>
       </div>
     </section>
+    
   );
 }
