@@ -81,15 +81,14 @@ export default function FaqSection() {
             return (
               <div
                 key={faq.question}
-                className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#5a1408] via-[#a02c0c] to-[#f5821f] text-white shadow-lg"
+                className="relative overflow-hidden rounded-2xl text-white shadow-lg"
+                style={{
+                  background: `
+                    radial-gradient(ellipse 55% 120% at 100% 0%, rgba(255,255,255,0.95) 0%, rgba(255,210,140,0.6) 35%, transparent 65%),
+                    linear-gradient(to right, #4a1008 0%, #7a1c0a 30%, #a83318 55%, #c85a28 75%, #d4763a 100%)
+                  `,
+                }}
               >
-                <div
-                  className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full opacity-70 blur-2xl"
-                  style={{
-                    background:
-                      "radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(245,130,31,0.5) 45%, transparent 70%)",
-                  }}
-                />
                 <button
                   type="button"
                   onClick={() => toggle(i)}

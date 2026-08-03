@@ -2,14 +2,15 @@ export default function MissionVision() {
   return (
     <section className="pb-4">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#5a1408] via-[#a02c0c] to-[#f5821f] p-8 text-white shadow-lg sm:p-10">
-          <div
-            className="pointer-events-none absolute -right-10 -top-10 h-72 w-72 rounded-full opacity-60 blur-3xl"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(245,130,31,0.5) 45%, transparent 70%)",
-            }}
-          />
+        <div
+          className="relative overflow-hidden rounded-2xl p-8 text-white shadow-lg sm:p-10"
+          style={{
+            background: `
+              radial-gradient(ellipse 55% 120% at 100% 0%, rgba(255,255,255,0.95) 0%, rgba(255,210,140,0.6) 35%, transparent 65%),
+              linear-gradient(to right, #4a1008 0%, #7a1c0a 30%, #a83318 55%, #c85a28 75%, #d4763a 100%)
+            `,
+          }}
+        >
           <div className="relative grid gap-8 sm:grid-cols-2 sm:divide-x sm:divide-white/20">
             <div>
               <h3 className="text-lg font-extrabold tracking-wide">MISSION</h3>
