@@ -5,25 +5,25 @@ import GlowImage from "./GlowImage";
 
 const features = [
   {
-    icon: <Image src="/images/icon-partner-management-black.png" alt="" width={44} height={44} />,
+    icon: "/images/icon-partner-management-black.png",
     title: "Integrated Partner Management",
     description:
       "Connect directly with a global network of independent hotels, leading hotel brands, and trusted channel managers — all through one seamless platform.",
   },
   {
-    icon: <Image src="/images/icon-revenue-black.png" alt="" width={44} height={44} />,
+    icon: "/images/icon-revenue-black.png",
     title: "Launch Faster, Scale Smarter",
     description:
       "Accelerate your distribution with intelligent connectivity that minimizes complexity and gets your business to market faster.",
   },
   {
-    icon: <Image src="/images/icon-launch-black.png" alt="" width={44} height={44} />,
+    icon: "/images/icon-launch-black.png",
     title: "Unlock More Hotel Opportunities",
     description:
       "Connect with a growing network of hotels through a streamlined onboarding experience designed for speed and scalability.",
   },
   {
-    icon: <Image src="/images/icon-payment-black.png" alt="" width={44} height={44} />,
+    icon: "/images/icon-payment-black.png",
     title: "Drive Better Commercial Performance",
     description:
       "Build stronger hotel relationships, negotiate competitive rates, and streamline operations through one connected platform.",
