@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Discover() {
   return (
     <section className="py-20">
-      <div className="mx-auto max-w-6xl ">
+      <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <h2 className="font-heading text-2xl font-extrabold tracking-wide text-[#0b0e1a] sm:text-3xl">
           DISCOVER <span className="text-[#f5821f]">THE EXPERIENCE</span>
         </h2>

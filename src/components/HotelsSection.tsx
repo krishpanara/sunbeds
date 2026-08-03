@@ -78,12 +78,14 @@ export default function HotelsSection() {
             <div
               className="
               relative
-              h-[520px]
-              w-[320px]
-              sm:h-[580px]
-              sm:w-[380px]
-              lg:h-[620px]
-              lg:w-[450px]
+              h-130
+              w-full
+              max-w-80
+              sm:h-145
+              sm:w-95
+              sm:max-w-none
+              lg:h-155
+              lg:w-112.5
             "
             >
 

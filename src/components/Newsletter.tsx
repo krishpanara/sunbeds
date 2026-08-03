@@ -27,14 +27,14 @@ export default function Newsletter() {
           <input type="email" placeholder="Email*" className={fieldClass} />
 
           <div className="mt-1 flex flex-col gap-2 text-xs text-white/80">
-            <label className="flex items-center gap-2">
+            <label className="flex items-start gap-2 sm:items-center">
               <input
                 type="checkbox"
                 className="h-4 w-4 shrink-0 appearance-none rounded-full bg-white checked:bg-[#f5821f]"
               />
               I agree receiving communications from SunBeds
             </label>
-            <label className="flex items-center gap-2">
+            <label className="flex items-start gap-2 sm:items-center">
               <input
                 type="checkbox"
                 className="h-4 w-4 shrink-0 appearance-none rounded-full bg-white checked:bg-[#f5821f]"

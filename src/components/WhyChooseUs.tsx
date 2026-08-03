@@ -27,7 +27,7 @@ export default function WhyChooseUs() {
         </h2>
 
         {/* Cards */}
-        <div className="mt-12 flex flex-wrap justify-center gap-38">
+        <div className="mt-12 flex flex-wrap justify-center gap-6 sm:gap-10 lg:gap-38">
           {reasons.map((reason) => (
             <div
               key={reason.lines[0]}
