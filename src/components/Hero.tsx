@@ -12,6 +12,7 @@ export default function Hero() {
         className="object-cover object-bottom opacity-90"
         sizes="100vw"
       />
+      
       <div className="absolute inset-0 bg-gradient-to-b from-[#05070f]/70 via-[#05070f]/30 to-[#05070f]" />
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-start px-6 pb-24 pt-32 text-left lg:px-10 lg:pb-32 lg:pt-44">
