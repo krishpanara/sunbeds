@@ -8,7 +8,7 @@ const features = [
       "Connect with a worldwide network of hotels and travel partners through one intelligent distribution platform.",
   },
   {
-    icon: "/images/icon-contract-free.png",
+    icon: "/images/icon-workforce-white.png",
     title: "Contract Free",
     description:
       "Integrate once and unlock efficient, hassle-free connectivity across your distribution network.",
@@ -20,19 +20,19 @@ const features = [
       "Increase your visibility and connect with new business opportunities across global markets.",
   },
   {
-    icon: "/images/icon-accelerated-onboarding.png",
+    icon: "/images/icon-network-white.png",
     title: "Accelerated Onboarding",
     description:
       "Get connected faster with a streamlined onboarding process designed for speed and simplicity.",
   },
   {
-    icon: "/images/icon-maximize-revenue.png",
+    icon: "/images/icon-rocket-white.png",
     title: "Maximize Revenue Potential",
     description:
       "Unlock new revenue opportunities through smarter distribution, direct partnerships, and competitive commercial terms.",
   },
   {
-    icon: "/images/icon-smart-tech.png",
+    icon: "/images/icon-smartgrid-white.png",
     title: "Smart Technology Solutions",
     description:
       "Manage your distribution with an intuitive platform that gives you greater visibility, control, and operational efficiency.",
@@ -47,7 +47,7 @@ export default function PartnerFeatureGrid() {
           {features.map((f) => (
             <div
               key={f.title}
-              className="flex flex-col items-center gap-4 rounded-2xl border border-[#f5821f]/30 px-6 py-8 text-center"
+              className="flex flex-col items-center gap-4 rounded-2xl border border-[#f5821f] px-6 py-8 text-center"
             >
               <IconBadge src={f.icon} size={64} />
               <h3 className="font-bold text-[#0b0e1a]">{f.title}</h3>

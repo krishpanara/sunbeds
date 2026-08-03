@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const ctaClass =
+  "inline-block rounded-full bg-gradient-to-r from-[#f5821f] to-[#ffc93f] px-7 py-3 text-sm font-semibold text-white shadow-md transition-opacity hover:opacity-90";
+
 export default function PartnersHero() {
   return (
     <section className="relative overflow-hidden bg-white pt-40 pb-16">
@@ -13,29 +16,16 @@ export default function PartnersHero() {
         sizes="100vw"
       />
       <div className="relative mx-auto max-w-6xl px-6 lg:px-10">
-        <p className="text-xs font-semibold tracking-[0.2em] text-[#0b0e1a]/50">
-          DISTRIBUTION NETWORK &amp; ACTIVE BUYERS
-        </p>
-        <h1 className="mt-3 max-w-xl text-2xl font-bold text-[#0b0e1a] sm:text-3xl">
-          One Platform for Direct Hotel Connectivity
-        </h1>
-
-        <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-start gap-12 lg:grid-cols-2">
           <div>
-            <h2 className="text-xl font-bold text-[#0b0e1a]">OUR PARTNERS</h2>
-            <p className="mt-4 max-w-lg text-[#0b0e1a]/60">
-              Expand your global network and connect with trusted distribution
-              partners through Sunbeds&apos; intelligent connectivity. Access
-              new markets, strengthen your distribution strategy, and unlock
-              opportunities designed to maximize your property&apos;s
-              e-commerce potential — while maintaining greater transparency,
-              control, and flexibility at every step.
+            <h1 className="text-xl font-extrabold text-[#0b0e1a] sm:text-2xl lg:text-3xl">
+              DISTRIBUTION NETWORK &amp; ACTIVE BUYERS
+            </h1>
+            <p className="mt-2 text-base font-semibold text-[#0b0e1a]">
+              One Platform for Direct Hotel
             </p>
-            <Link
-              href="/contact"
-              className="mt-6 inline-block rounded-full bg-[#f5821f] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#d96f14]"
-            >
-              Contact us
+            <Link href="/contact" className={`mt-5 ${ctaClass}`}>
+              Request a demo
             </Link>
           </div>
 
@@ -48,6 +38,21 @@ export default function PartnersHero() {
               sizes="(min-width: 1024px) 520px, 90vw"
             />
           </div>
+        </div>
+
+        <div className="mt-10">
+          <h2 className="text-xl font-bold text-[#0b0e1a]">OUR PARTNERS</h2>
+          <p className="mt-4 max-w-2xl text-[#0b0e1a]/60">
+            Expand your global network and connect with trusted distribution
+            partners through Sunbeds&apos; intelligent connectivity. Access
+            new markets, strengthen your distribution strategy, and unlock
+            opportunities designed to maximize your property&apos;s
+            e-commerce potential — while maintaining greater transparency,
+            control, and flexibility at every step.
+          </p>
+          <Link href="/contact" className={`mt-6 ${ctaClass}`}>
+            Contact Us
+          </Link>
         </div>
       </div>
     </section>

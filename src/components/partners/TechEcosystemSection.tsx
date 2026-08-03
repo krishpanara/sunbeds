@@ -13,8 +13,8 @@ export default function TechEcosystemSection() {
         sizes="100vw"
       />
       <div className="relative mx-auto max-w-6xl px-6 lg:px-10">
-        <h1 className="text-2xl font-bold text-[#0b0e1a] sm:text-3xl">
-          OUR INTEGRATION ECOSYSTEM WITH SUNBEDS
+        <h1 className="text-2xl font-extrabold text-[#0b0e1a] sm:text-3xl">
+          OUR INTERGRATION ECOSYSTEM WITH SUNBEDS
         </h1>
         <p className="mt-4 max-w-2xl text-[#0b0e1a]/60">
           SunBeds connects hospitality B2B buyers and connectivity platforms

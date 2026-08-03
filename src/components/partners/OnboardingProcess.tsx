@@ -31,16 +31,16 @@ export default function OnboardingProcess() {
         <h2 className="text-xl font-bold text-[#0b0e1a]">OUR ONBOARDING PROCESS</h2>
         <Link
           href="/contact"
-          className="mt-4 inline-block rounded-full bg-[#f5821f] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#d96f14]"
+          className="mt-4 inline-block rounded-full bg-gradient-to-r from-[#f5821f] to-[#ffc93f] px-7 py-3 text-sm font-semibold text-white shadow-md transition-opacity hover:opacity-90"
         >
-          Contact us
+          Contact Us
         </Link>
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
           {steps.map((s) => (
             <div
               key={s.title}
-              className="flex items-center gap-4 rounded-2xl border border-[#f5821f]/30 px-6 py-6"
+              className="flex items-center gap-4 rounded-2xl border border-[#f5821f] px-6 py-6"
             >
               <IconBadge src={s.icon} size={56} />
               <div>

@@ -1,7 +1,7 @@
-import type { ReactNode } from "react";
+import Image from "next/image";
 
 type FeatureCardProps = {
-  icon: ReactNode;
+  icon: string;
   title: string;
   description: string;
 };
@@ -9,7 +9,9 @@ type FeatureCardProps = {
 export default function FeatureCard({ icon, title, description }: FeatureCardProps) {
   return (
     <div className="flex min-h-24 gap-4">
-      <div className="flex h-11 w-11 shrink-0 items-start justify-center pt-0.5">{icon}</div>
+      <div className="flex h-11 w-11 shrink-0 items-start justify-center pt-0.5">
+        <Image src={icon} alt="" width={44} height={44} className="object-contain" />
+      </div>
       <div>
         <h4 className="font-semibold text-[#0b0e1a]">{title}</h4>
         <p className="mt-1 max-w-md text-sm text-[#0b0e1a]/60">{description}</p>

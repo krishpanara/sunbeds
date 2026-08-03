@@ -3,7 +3,9 @@
 import { useState } from "react";
 
 const fieldClass =
-  "w-full rounded-full border border-[#f5821f]/60 bg-transparent px-5 py-3 text-sm text-[#0b0e1a] placeholder:text-[#0b0e1a]/40 focus:border-[#f5821f] focus:outline-none";
+  "w-full rounded-full border border-[#f5821f] bg-transparent px-5 py-3 text-sm text-[#0b0e1a] placeholder:text-[#0b0e1a]/40 focus:border-[#f5821f] focus:outline-none";
+
+const labelClass = "mb-1.5 block text-sm font-bold text-[#0b0e1a]";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -17,55 +19,55 @@ export default function ContactForm() {
       }}
     >
       <div>
-        <label className="mb-1.5 block text-sm text-[#0b0e1a]/70">Your Name</label>
+        <label className={labelClass}>Your Name</label>
         <input type="text" required className={fieldClass} />
       </div>
       <div>
-        <label className="mb-1.5 block text-sm text-[#0b0e1a]/70">Email</label>
+        <label className={labelClass}>Email</label>
         <input type="email" required className={fieldClass} />
       </div>
       <div>
-        <label className="mb-1.5 block text-sm text-[#0b0e1a]/70">Company</label>
+        <label className={labelClass}>Company</label>
         <input type="text" className={fieldClass} />
       </div>
       <div>
-        <label className="mb-1.5 block text-sm text-[#0b0e1a]/70">Job title</label>
+        <label className={labelClass}>Job Title</label>
         <input type="text" className={fieldClass} />
       </div>
       <div>
-        <label className="mb-1.5 block text-sm text-[#0b0e1a]/70">Country</label>
+        <label className={labelClass}>Country</label>
         <input type="text" className={fieldClass} />
       </div>
       <div>
-        <label className="mb-1.5 block text-sm text-[#0b0e1a]/70">Website</label>
+        <label className={labelClass}>Website</label>
         <input type="text" className={fieldClass} />
       </div>
       <div>
-        <label className="mb-1.5 block text-sm text-[#0b0e1a]/70">Phone</label>
+        <label className={labelClass}>Phone</label>
         <input type="tel" className={fieldClass} />
       </div>
       <div>
-        <label className="mb-1.5 block text-sm text-[#0b0e1a]/70">Your message</label>
+        <label className={labelClass}>Your Message</label>
         <textarea
           rows={5}
-          className="w-full rounded-3xl border border-[#f5821f]/60 bg-transparent px-5 py-3 text-sm text-[#0b0e1a] placeholder:text-[#0b0e1a]/40 focus:border-[#f5821f] focus:outline-none"
+          className="w-full rounded-3xl border border-[#f5821f] bg-transparent px-5 py-3 text-sm text-[#0b0e1a] placeholder:text-[#0b0e1a]/40 focus:border-[#f5821f] focus:outline-none"
         />
       </div>
 
-      <label className="flex items-center gap-2 text-sm text-[#0b0e1a]/70">
-        <input type="checkbox" className="h-4 w-4 accent-[#f5821f]" />
-        I agree receiving communication from Sunbeds
+      <label className="flex items-center gap-3 rounded-full border border-[#f5821f] px-5 py-3 text-sm text-[#0b0e1a]/80">
+        <input type="checkbox" className="h-4 w-4 shrink-0 accent-[#f5821f]" />
+        I agree receiving communication from SunBeds
       </label>
 
       <button
         type="submit"
-        className="mt-2 w-fit rounded-full bg-[#f5821f] px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#d96f14]"
+        className="mx-auto mt-2 w-fit rounded-full bg-gradient-to-r from-[#f5821f] to-[#ffc93f] px-10 py-3 text-sm font-semibold text-white shadow-md transition-opacity hover:opacity-90"
       >
         Send
       </button>
 
       {submitted && (
-        <p className="text-sm text-green-600">
+        <p className="text-center text-sm text-green-600">
           Thanks for reaching out — our team will get back to you shortly.
         </p>
       )}

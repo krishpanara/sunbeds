@@ -83,7 +83,9 @@ export default function ExecutiveTeam() {
                   {member.name}
                   {member.credentials ? ` ${member.credentials}` : ""}
                 </span>
-                <span className="mt-0.5 block text-xs text-[#f5821f]">{member.role}</span>
+                <span className="mt-1.5 inline-block rounded-full bg-[#f5821f] px-3 py-1 text-[10px] font-semibold text-white">
+                  {member.role}
+                </span>
               </span>
             </button>
           ))}
@@ -98,13 +100,20 @@ export default function ExecutiveTeam() {
               }`}
             >
               <div className="px-6 py-6 sm:px-8">
-                <h3 className="font-bold text-[#0b0e1a]">
-                  {member.name}
-                  {member.credentials ? `, ${member.credentials}` : ""}
-                </h3>
-                <p className="text-sm font-semibold text-[#f5821f]">
-                  {member.role}, {member.company}
-                </p>
+                <div className="flex items-center gap-4">
+                  <span className="relative block h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-[#f5821f]">
+                    <Image src={member.photo} alt={member.name} fill className="object-cover" sizes="64px" />
+                  </span>
+                  <div>
+                    <h3 className="font-bold text-[#0b0e1a]">
+                      {member.name}
+                      {member.credentials ? `, ${member.credentials}` : ""}
+                    </h3>
+                    <p className="text-sm font-semibold text-[#f5821f]">
+                      {member.role} — {member.company}
+                    </p>
+                  </div>
+                </div>
                 <div className="mt-4 flex flex-col gap-3 text-sm text-[#0b0e1a]/70">
                   {member.bio.map((paragraph, idx) => (
                     <p key={idx}>{paragraph}</p>

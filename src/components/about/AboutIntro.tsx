@@ -13,7 +13,9 @@ export default function AboutIntro() {
       />
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:px-10">
         <div>
-          <h1 className="text-2xl font-bold text-[#0b0e1a] sm:text-3xl">ABOUT US</h1>
+          <h1 className="text-4xl font-extrabold tracking-tight text-[#0b0e1a] sm:text-5xl">
+            ABOUT US
+          </h1>
           <p className="mt-5 max-w-lg text-[#0b0e1a]/60">
             Sunbeds was founded with a bold vision: to transform the future of
             hotel distribution. By connecting hotels and distribution partners

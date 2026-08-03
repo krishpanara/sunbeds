@@ -12,13 +12,13 @@ const partners = [
 
 export default function KeyPartnersLogos() {
   return (
-    <section className="bg-[#faf9f7] py-16">
+    <section className="bg-white pb-16">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <h2 className="text-xl font-bold text-[#0b0e1a]">KEY PARTNERS</h2>
-        <div className="mt-8 flex flex-wrap items-center gap-x-12 gap-y-8">
+        <div className="mt-8 flex flex-wrap justify-center gap-x-14 gap-y-8">
           {partners.map((p) => (
-            <span key={p.alt} className="relative block h-8 w-28 sm:h-10 sm:w-32">
-              <Image src={p.src} alt={p.alt} fill className="object-contain" sizes="128px" />
+            <span key={p.alt} className="relative block h-9 w-32 sm:h-11 sm:w-36">
+              <Image src={p.src} alt={p.alt} fill className="object-contain" sizes="144px" />
             </span>
           ))}
         </div>
