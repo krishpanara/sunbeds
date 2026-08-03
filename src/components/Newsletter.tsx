@@ -17,7 +17,11 @@ export default function Newsletter() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#05070f]/10 via-[#05070f]/40 to-[#05070f]/80" />
       <div className="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:px-10">
         <div className="flex flex-col gap-4">
-          <input type="text" placeholder="Company Name*" className={fieldClass} />
+          <input
+            type="text"
+            placeholder="Company Name*"
+            className={fieldClass}
+          />
           <input type="text" placeholder="Country*" className={fieldClass} />
           <input type="text" placeholder="Your Name*" className={fieldClass} />
           <input type="email" placeholder="Email*" className={fieldClass} />
@@ -36,24 +40,26 @@ export default function Newsletter() {
                 className="h-4 w-4 shrink-0 appearance-none rounded-full bg-white checked:bg-[#f5821f]"
               />
               I accept the{" "}
-              <a href="/privacy-policy" className="text-[#f5821f] underline">
+              <a href="" className="text-[#fffbf8]">
                 Privacy Policy and Terms and Conditions
               </a>{" "}
               of SunBeds.
             </label>
           </div>
 
-          <button
-            type="button"
-            className="mt-2 w-fit rounded-full bg-gradient-to-r from-[#f5821f] to-[#ffc93f] px-8 py-3 text-sm font-semibold text-white shadow-md transition-opacity hover:opacity-90"
-          >
-            Subscribe
-          </button>
+          <div className="mt-2 flex justify-end">
+            <button
+              type="button"
+              className="w-fit rounded-full bg-gradient-to-r from-[#f5821f] to-[#ffc93f] px-15 py-2 text-sm font-semibold text-white shadow-md transition-opacity hover:opacity-90"
+            >
+              Subscribe
+            </button>
+          </div>
         </div>
 
         <div className="flex items-start justify-center lg:justify-end">
           <h3 className="text-2xl font-semibold text-white lg:text-3xl">
-            Subscribe to our <span className="text-[#f5821f]">Newsletter</span>
+            Subscribe to our <span className="text-[#faf8f7]">Newsletter</span>
           </h3>
         </div>
       </div>

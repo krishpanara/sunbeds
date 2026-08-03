@@ -2,37 +2,43 @@ import IconBadge from "./partners/IconBadge";
 
 const reasons = [
   {
-    icon: "/images/icon-direct-contract.png",
     lines: ["One Contract", "One Contact", "One Pricing", "One Technology"],
   },
   {
-    icon: "/images/icon-gain-visibility.png",
     lines: ["Global Expansion", "Global Reach", "Global Distribution"],
   },
   {
-    icon: "/images/icon-grow.png",
-    lines: ["Maximize Hotel Revenue", "Maximize Hotel Occupancy", "Maximize Hotel's Ecommerce Business"],
+    lines: [
+      "Maximize Hotel Revenue",
+      "Maximize Hotel Occupancy",
+      "Maximize Hotel's Ecommerce Business",
+    ],
   },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-[#faf9f7] py-16">
-      <div className="mx-auto max-w-7xl px-6 text-center lg:px-10">
-        <h3 className="text-2xl font-semibold text-[#0b0e1a] sm:text-3xl">
-          Why independent hotels and Resorts <span className="text-[#f5821f]">Choose Sunbeds</span>
-        </h3>
+    <section className="bg-[#faf9f7] py-16 sm:py-20">
+      <div className="mx-auto max-w-6xl px-6 text-center lg:px-10">
+        {/* Heading */}
+        <h2 className="text-2xl font-semibold text-[#0b0e1a] sm:text-3xl md:text-[32px]">
+          Why independent hotels and Resorts{" "}
+          <span className="text-[#f5821f]">Choose Sunbeds</span>
+        </h2>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          {reasons.map((r) => (
+        {/* Cards */}
+        <div className="mt-12 flex flex-wrap justify-center gap-38">
+          {reasons.map((reason) => (
             <div
-              key={r.lines[0]}
-              className="flex flex-col items-center gap-4 rounded-2xl border border-[#f5821f]/30 px-6 py-10"
+              key={reason.lines[0]}
+              className="flex w-64 flex-col items-center justify-center rounded-2xl border border-[#f5821f]/40 bg-white px-4 py-8 shadow-sm transition-shadow hover:shadow-md"
             >
-              <IconBadge src={r.icon} size={56} />
-              <div className="flex flex-col gap-1">
-                {r.lines.map((line) => (
-                  <p key={line} className="font-semibold text-[#0b0e1a]">
+              <div className="flex flex-col gap-2">
+                {reason.lines.map((line) => (
+                  <p
+                    key={line}
+                    className="text-[15px] font-semibold leading-snug text-[#0b0e1a] sm:text-base"
+                  >
                     {line}
                   </p>
                 ))}
@@ -44,3 +50,4 @@ export default function WhyChooseUs() {
     </section>
   );
 }
+

@@ -26,7 +26,7 @@ export default function Footer() {
             <Logo />
           </div>
 
-          <div className="flex flex-col items-center gap-3 text-center">
+          <div className="flex flex-col items-center mt-[10%] gap-3 text-center">
             <p className="text-base">Phone +639171212626</p>
             <p className="text-base">support@sunbedstechnology.com</p>
             <div className="mt-2 flex gap-3">

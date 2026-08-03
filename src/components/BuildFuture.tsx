@@ -3,30 +3,38 @@ import Link from "next/link";
 
 export default function BuildFuture() {
   return (
-    <section className="relative flex min-h-205 items-start overflow-hidden bg-[#0b0e1a] pt-20 pb-48 text-center">
+    <section className="relative flex min-h-[560px] items-start overflow-hidden pt-20 pb-40 text-center sm:min-h-[640px] sm:pt-24 sm:pb-48">
+      {/* Background image */}
       <Image
         src="/images/buildfuture-skyline.webp"
         alt="City skyline at sunset"
         fill
-        className="object-cover"
+        className="object-cover object-center"
         sizes="100vw"
+        priority
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/45" />
-      <div className="relative mx-auto max-w-2xl px-6">
-        <h2 className="text-3xl font-bold text-white drop-shadow-md sm:text-4xl">
-          Build the Future of <span className="text-[#f5821f]">Hotel Distribution</span>
+
+      {/* Soft overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-black/50" />
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-5xl px-6">
+        <h2 className="text-1xl font-bold uppercase tracking-wide text-white drop-shadow-md sm:text-xl md:text-2xl">
+          Build the Future of Hotel Distribution
         </h2>
-        <p className="mt-5 text-white drop-shadow-md">
-          Join Sunbeds and be part of a team that&apos;s redefining global hospitality
-          through innovation, technology, and meaningful partnerships. Explore
-          opportunities to grow your career while making an impact across the
-          travel industry.
+
+        <p className="mt-5 text-base leading-relaxed text-white/95 drop-shadow-md sm:text-lg">
+          Join SunBeds and be part of a team that&apos;s redefining global
+          hospitality through innovation, technology, and meaningful
+          partnerships. Explore opportunities to grow your career while making
+          an impact across the travel industry.
         </p>
+
         <Link
           href="/careers"
-          className="mt-8 inline-block rounded-full bg-[#f5821f] px-8 py-3 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#d96f14]"
+          className="mt-8 inline-block rounded-full bg-[#f5c518] px-14 py-2 text-base font-semibold text-[#f1f1f3] shadow-lg transition-colors hover:bg-[#e6b800] sm:mt-[150px]"
         >
-          Join Us
+          Join Us.
         </Link>
       </div>
     </section>
