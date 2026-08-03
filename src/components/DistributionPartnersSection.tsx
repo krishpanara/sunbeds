@@ -2,8 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import FeatureCard from "./FeatureCard";
 
+
 const features = [
   {
+
     icon: "/images/icon-distribution-black.png",
     title: "Integrated Partner Management",
     description:
