@@ -13,11 +13,11 @@ export default function BuildFuture() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/45" />
       <div className="relative mx-auto max-w-2xl px-6">
-        <h2 className="text-3xl font-bold text-white drop-shadow-md sm:text-4xl">
+        <h2 className="text-3xl font-bold uppercase text-white drop-shadow-md sm:text-4xl">
           Build the Future of <span className="text-[#f5821f]">Hotel Distribution</span>
         </h2>
         <p className="mt-5 text-white drop-shadow-md">
-          Join Sunbeds and be part of a team that&apos;s redefining global hospitality
+          Join SunBeds and be part of a team that&apos;s redefining global hospitality
           through innovation, technology, and meaningful partnerships. Explore
           opportunities to grow your career while making an impact across the
           travel industry.

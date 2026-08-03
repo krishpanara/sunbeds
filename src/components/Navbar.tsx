@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import Logo from "./Logo";
@@ -21,14 +22,25 @@ export default function Navbar({ theme = "light" }: NavbarProps) {
 
   return (
     <header className="absolute inset-x-0 top-0 z-30 w-full bg-transparent">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 lg:px-10">
+      {!isDark && (
+        <Image
+          src="/images/header-bg.jpg"
+          alt=""
+          fill
+          priority
+          aria-hidden
+          className="pointer-events-none -z-10 object-cover"
+          sizes="100vw"
+        />
+      )}
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-7 lg:px-10 lg:py-9">
         <Link href="/" onClick={() => setOpen(false)}>
           <Logo />
         </Link>
 
         <ul
           className={`hidden items-center gap-6 text-xs font-semibold tracking-wide lg:flex ${
-            isDark ? "text-white" : "text-[#0b0e1a]"
+            isDark ? "text-white" : "text-white"
           }`}
         >
           {links.map((link) => (
@@ -64,7 +76,7 @@ export default function Navbar({ theme = "light" }: NavbarProps) {
           aria-label="Toggle menu"
           aria-expanded={open}
           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors lg:hidden ${
-            isDark ? "border-white/60 text-white" : "border-[#0b0e1a]/40 text-[#0b0e1a]"
+            isDark ? "border-white/60 text-white" : "border-white/60 text-white"
           }`}
         >
           <svg

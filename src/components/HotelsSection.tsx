@@ -46,7 +46,7 @@ export default function HotelsSection() {
 
         {/* Heading */}
 
-        <h2 className="max-w-4xl text-3xl font-extrabold uppercase leading-tight text-[#111] md:text-5xl">
+        <h2 className="max-w-2xl text-2xl font-bold uppercase leading-tight text-[#111] md:text-3xl">
           TAKE YOUR HOTELS TO{" "}
           <span className="text-[#F58220]">
             THE NEXT LEVEL
@@ -65,6 +65,7 @@ export default function HotelsSection() {
                 <FeatureCard
                   key={feature.title}
                   {...feature}
+                  badge
                 />
               ))}
 

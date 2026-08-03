@@ -11,7 +11,7 @@ export default function Discover() {
         className="pointer-events-none object-cover opacity-[0.07]"
         sizes="100vw"
       />
-      <div className="relative mx-auto max-w-4xl px-6 lg:px-10">
+      <div className="relative mx-auto max-w-6xl ">
         <h2 className="text-2xl font-bold text-[#0b0e1a] sm:text-3xl">
           DISCOVER <span className="text-[#f5821f]">THE EXPERIENCE</span>
         </h2>
@@ -24,7 +24,7 @@ export default function Discover() {
           CREATING CONNECTIONS <span className="text-[#f5821f]">WITHOUT BOUNDERIES</span>
         </h3>
 
-        <div className="mt-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+        <div className="mt-12 flex flex-col items-start gap-8 sm:flex-row sm:items-center sm:gap-10">
           <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl sm:h-32 sm:w-32">
             <Image
               src="/images/globe-network.png"
@@ -35,15 +35,17 @@ export default function Discover() {
             />
           </div>
 
-          <p className="shrink-0 text-4xl font-bold text-[#0b0e1a] sm:text-5xl">10k+</p>
+          <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            <p className="shrink-0 text-4xl font-bold text-[#0b0e1a] sm:text-5xl">10k+</p>
 
-          <div>
-            <p className="font-bold text-[#0b0e1a]">DISTRIBUTION &amp; ACTIVE BUYERS</p>
-            <p className="mt-1 max-w-md text-sm text-[#0b0e1a]/60">
-              Distributing to B2B, Tour Operators, Closed User Groups, OTA and
-              Agencies Network/Retail Travel Agencies
-            </p>
-            <div className="mt-3 h-0.5 w-36 bg-[#f5821f]" />
+            <div>
+              <p className="font-bold text-[#0b0e1a]">DISTRIBUTION &amp; ACTIVE BUYERS</p>
+              <p className="mt-1 max-w-md text-sm text-[#0b0e1a]/60">
+                Distributing Hotel Inventory Across B2B Travel Networks, OTAs, Tour
+                Operators, and Agencies
+              </p>
+              <div className="mt-3 h-0.5 w-36 bg-[#f5821f]" />
+            </div>
           </div>
         </div>
       </div>
