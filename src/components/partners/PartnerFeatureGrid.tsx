@@ -41,7 +41,7 @@ const features = [
 
 export default function PartnerFeatureGrid() {
   return (
-    <section className="bg-white pb-16">
+    <section className="pb-16">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => (

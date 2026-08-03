@@ -81,9 +81,9 @@ export default function KeyPartnersLogos() {
   const totalCycle = `${(partners.length * STAGGER + PULSE_DURATION).toFixed(2)}s`;
 
   return (
-    <section className="bg-white pb-16 pt-4">
+    <section className="pb-16 pt-4">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
-        <h2 className="text-xl font-bold text-[#0b0e1a]">KEY PARTNERS</h2>
+        <h2 className="text-xl font-extrabold tracking-wide text-[#0b0e1a]">KEY PARTNERS</h2>
 
         <div className="relative mt-8 w-full select-none">
           {/* SVG circuit layer */}

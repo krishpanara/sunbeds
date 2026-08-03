@@ -64,9 +64,9 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="bg-white pt-4 pb-20">
+    <section className="pt-4 pb-20">
       <div className="mx-auto max-w-3xl px-6 lg:px-10">
-        <h2 className="text-2xl font-bold text-[#0b0e1a] sm:text-3xl">FAQs</h2>
+        <h2 className="text-2xl font-extrabold tracking-wide text-[#0b0e1a] sm:text-3xl">FAQs</h2>
         <p className="mt-4 text-[#0b0e1a]/60">
           Everything you need to know about SunBeds. Whether you&apos;re a
           hotel looking to expand your global reach or a travel partner
@@ -93,7 +93,7 @@ export default function FaqSection() {
                 <button
                   type="button"
                   onClick={() => toggle(i)}
-                  className="relative flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-bold tracking-wide"
+                  className="relative flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-heading font-bold tracking-wide"
                   aria-expanded={isOpen}
                 >
                   {faq.question}

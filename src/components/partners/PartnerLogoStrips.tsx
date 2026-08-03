@@ -23,7 +23,7 @@ export default function PartnerLogoStrips() {
   const doubled = [...hotelChains, ...hotelChains];
 
   return (
-    <section className="bg-[#faf9f7] py-16">
+    <section className="py-16">
       <div className="mx-auto max-w-6xl px-6 text-center lg:px-10">
 
         {/* Hotel Chains — rolling marquee */}

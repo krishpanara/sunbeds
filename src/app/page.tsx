@@ -1,3 +1,4 @@
+import Image from "next/image";
 import BuildFuture from "@/components/BuildFuture";
 import Discover from "@/components/Discover";
 import DistributionPartnersSection from "@/components/DistributionPartnersSection";
@@ -16,12 +17,26 @@ export default function Home() {
       <Navbar theme="dark" />
       <main className="flex-1">
         <Hero />
-        <Fingertips />
-        <Discover />
-        <HotelsSection />
-        <DistributionPartnersSection />
-        <PartnerEcosystem />
-        <WhyChooseUs />
+
+        <div className="relative overflow-hidden bg-white">
+          <Image
+            src="/images/placeholder-lines-bg.png"
+            alt=""
+            fill
+            aria-hidden
+            className="pointer-events-none object-cover opacity-[0.07]"
+            sizes="100vw"
+          />
+          <div className="relative">
+            <Fingertips />
+            <Discover />
+            <HotelsSection />
+            <DistributionPartnersSection />
+            <PartnerEcosystem />
+            <WhyChooseUs />
+          </div>
+        </div>
+
         <BuildFuture />
         <Newsletter />
       </main>

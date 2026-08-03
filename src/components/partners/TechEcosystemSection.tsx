@@ -1,19 +1,10 @@
-import Image from "next/image";
 import EcosystemDiagram from "./EcosystemDiagram";
 
 export default function TechEcosystemSection() {
   return (
-    <section className="relative overflow-hidden bg-white pt-40 pb-16">
-      <Image
-        src="/images/lines-pattern.webp"
-        alt=""
-        fill
-        aria-hidden
-        className="pointer-events-none object-cover opacity-[0.06]"
-        sizes="100vw"
-      />
-      <div className="relative mx-auto max-w-6xl px-6 lg:px-10">
-        <h1 className="text-2xl font-extrabold text-[#0b0e1a] sm:text-3xl">
+    <section className="pt-40 pb-16">
+      <div className="mx-auto max-w-6xl px-6 lg:px-10">
+        <h1 className="text-2xl font-extrabold tracking-wide text-[#0b0e1a] sm:text-3xl">
           OUR INTERGRATION ECOSYSTEM WITH SUNBEDS
         </h1>
         <p className="mt-4 max-w-2xl text-[#0b0e1a]/60">

@@ -19,7 +19,7 @@ export default function BuildFuture() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-6">
-        <h2 className="text-1xl font-bold uppercase tracking-wide text-white drop-shadow-md sm:text-xl md:text-2xl">
+        <h2 className="font-heading text-2xl font-extrabold uppercase tracking-wide text-white drop-shadow-md sm:text-3xl md:text-4xl">
           Build the Future of Hotel Distribution
         </h2>
 

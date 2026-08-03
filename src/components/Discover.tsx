@@ -2,17 +2,9 @@ import Image from "next/image";
 
 export default function Discover() {
   return (
-    <section className="relative overflow-hidden bg-white py-20">
-      <Image
-        src="/images/lines-pattern.webp"
-        alt=""
-        fill
-        aria-hidden
-        className="pointer-events-none object-cover opacity-[0.07]"
-        sizes="100vw"
-      />
-      <div className="relative mx-auto max-w-6xl ">
-        <h2 className="text-2xl font-bold text-[#0b0e1a] sm:text-3xl">
+    <section className="py-20">
+      <div className="mx-auto max-w-6xl ">
+        <h2 className="font-heading text-2xl font-extrabold tracking-wide text-[#0b0e1a] sm:text-3xl">
           DISCOVER <span className="text-[#f5821f]">THE EXPERIENCE</span>
         </h2>
         <p className="mt-4 max-w-2xl text-[#0b0e1a]/70">
@@ -20,7 +12,7 @@ export default function Discover() {
           ecommerce through a platform designed for convenience.
         </p>
 
-        <h3 className="mt-16 text-2xl font-bold text-[#0b0e1a]">
+        <h3 className="mt-16 font-heading text-2xl font-extrabold tracking-wide text-[#0b0e1a]">
           CREATING CONNECTIONS <span className="text-[#f5821f]">WITHOUT BOUNDERIES</span>
         </h3>
 
@@ -39,7 +31,7 @@ export default function Discover() {
             <p className="shrink-0 text-4xl font-bold text-[#0b0e1a] sm:text-5xl">10k+</p>
 
             <div>
-              <p className="font-bold text-[#0b0e1a]">DISTRIBUTION &amp; ACTIVE BUYERS</p>
+              <p className="font-heading font-extrabold tracking-wide text-[#0b0e1a]">DISTRIBUTION &amp; ACTIVE BUYERS</p>
               <p className="mt-1 max-w-md text-sm text-[#0b0e1a]/60">
                 Distributing Hotel Inventory Across B2B Travel Networks, OTAs, Tour
                 Operators, and Agencies

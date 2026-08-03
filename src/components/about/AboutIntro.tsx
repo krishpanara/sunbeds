@@ -2,18 +2,10 @@ import Image from "next/image";
 
 export default function AboutIntro() {
   return (
-    <section className="relative overflow-hidden bg-white pt-40 pb-20">
-      <Image
-        src="/images/lines-pattern.webp"
-        alt=""
-        fill
-        aria-hidden
-        className="pointer-events-none object-cover opacity-[0.06]"
-        sizes="100vw"
-      />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:px-10">
+    <section className="pt-40 pb-20">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:px-10">
         <div>
-          <h1 className="text-4xl font-extrabold tracking-tight text-[#0b0e1a] sm:text-5xl">
+          <h1 className="text-4xl font-extrabold tracking-wide text-[#0b0e1a] sm:text-5xl">
             ABOUT US
           </h1>
           <p className="mt-5 max-w-lg text-[#0b0e1a]/60">

@@ -6,19 +6,11 @@ const ctaClass =
 
 export default function PartnersHero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-40 pb-16">
-      <Image
-        src="/images/lines-pattern.webp"
-        alt=""
-        fill
-        aria-hidden
-        className="pointer-events-none object-cover opacity-[0.06]"
-        sizes="100vw"
-      />
-      <div className="relative mx-auto max-w-6xl px-6 lg:px-10">
+    <section className="pt-40 pb-16">
+      <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="grid items-start gap-12 lg:grid-cols-2">
           <div>
-            <h1 className="text-xl font-extrabold text-[#0b0e1a] sm:text-2xl lg:text-3xl">
+            <h1 className="text-xl font-extrabold tracking-wide text-[#0b0e1a] sm:text-2xl lg:text-3xl">
               DISTRIBUTION NETWORK &amp; ACTIVE BUYERS
             </h1>
             <p className="mt-2 text-base font-semibold text-[#0b0e1a]">
@@ -41,7 +33,7 @@ export default function PartnersHero() {
         </div>
 
         <div className="mt-10">
-          <h2 className="text-xl font-bold text-[#0b0e1a]">OUR PARTNERS</h2>
+          <h2 className="text-xl font-extrabold tracking-wide text-[#0b0e1a]">OUR PARTNERS</h2>
           <p className="mt-4 max-w-2xl text-[#0b0e1a]/60">
             Expand your global network and connect with trusted distribution
             partners through Sunbeds&apos; intelligent connectivity. Access

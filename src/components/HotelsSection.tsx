@@ -31,22 +31,13 @@ const features = [
 
 export default function HotelsSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-24">
+    <section className="py-24">
 
-      {/* Background */}
-      <Image
-        src="/images/lines-pattern.webp"
-        alt=""
-        fill
-        priority
-        className="pointer-events-none object-cover opacity-[0.07]"
-      />
-
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
 
         {/* Heading */}
 
-        <h2 className="max-w-2xl text-2xl font-bold uppercase leading-tight text-[#111] md:text-3xl">
+        <h2 className="max-w-2xl font-heading text-2xl font-extrabold uppercase leading-tight tracking-wide text-[#111] md:text-3xl">
           TAKE YOUR HOTELS TO{" "}
           <span className="text-[#F58220]">
             THE NEXT LEVEL

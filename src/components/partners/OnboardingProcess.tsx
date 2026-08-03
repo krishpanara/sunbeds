@@ -26,9 +26,9 @@ const steps = [
 
 export default function OnboardingProcess() {
   return (
-    <section className="bg-white pb-20">
+    <section className="pb-20">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
-        <h2 className="text-xl font-bold text-[#0b0e1a]">OUR ONBOARDING PROCESS</h2>
+        <h2 className="text-xl font-extrabold tracking-wide text-[#0b0e1a]">OUR ONBOARDING PROCESS</h2>
         <Link
           href="/contact"
           className="mt-4 inline-block rounded-full bg-gradient-to-r from-[#f5821f] to-[#ffc93f] px-7 py-3 text-sm font-semibold text-white shadow-md transition-opacity hover:opacity-90"

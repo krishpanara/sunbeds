@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function HubIllustration() {
   return (
-    <section className="bg-white pb-16">
+    <section className="pb-16">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-[#c9683f] shadow-lg sm:aspect-[2/1]">
           <Image

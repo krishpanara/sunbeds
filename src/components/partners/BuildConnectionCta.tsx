@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function BuildConnectionCta() {
   return (
-    <section className="bg-white pb-20">
+    <section className="pb-20">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="rounded-2xl border border-[#f5821f] bg-white px-8 py-10 text-center">
           <h3 className="text-lg font-bold text-[#0b0e1a]">Let&apos;s Build the Right Connection</h3>

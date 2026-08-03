@@ -18,10 +18,10 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-[#faf9f7] py-16 sm:py-20">
+    <section className="py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-6 text-center lg:px-10">
         {/* Heading */}
-        <h2 className="text-2xl font-semibold text-[#0b0e1a] sm:text-3xl md:text-[32px]">
+        <h2 className="font-heading text-2xl font-extrabold uppercase tracking-wide text-[#0b0e1a] sm:text-3xl md:text-[32px]">
           Why independent hotels and Resorts{" "}
           <span className="text-[#f5821f]">Choose Sunbeds</span>
         </h2>
@@ -37,7 +37,7 @@ export default function WhyChooseUs() {
                 {reason.lines.map((line) => (
                   <p
                     key={line}
-                    className="text-[15px] font-semibold leading-snug text-[#0b0e1a] sm:text-base"
+                    className="text-[15px] font-normal leading-snug text-[#0b0e1a] sm:text-base"
                   >
                     {line}
                   </p>

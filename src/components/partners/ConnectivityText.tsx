@@ -11,11 +11,11 @@ const blocks = [
 
 export default function ConnectivityText() {
   return (
-    <section className="bg-white pb-16">
+    <section className="pb-16">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 lg:px-10">
         {blocks.map((b) => (
           <div key={b.title}>
-            <h3 className="text-lg font-bold text-[#0b0e1a]">{b.title}</h3>
+            <h3 className="text-lg font-extrabold tracking-wide text-[#0b0e1a]">{b.title}</h3>
             <p className="mt-2 max-w-2xl text-[#0b0e1a]/60">{b.body}</p>
           </div>
         ))}

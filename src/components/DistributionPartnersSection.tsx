@@ -31,17 +31,9 @@ const features = [
 
 export default function DistributionPartnersSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-20">
-      <Image
-        src="/images/lines-pattern.webp"
-        alt=""
-        fill
-        aria-hidden
-        className="pointer-events-none object-cover opacity-[0.07]"
-        sizes="100vw"
-      />
-      <div className="relative mx-auto max-w-6xl ">
-        <p className="text-lg font-bold uppercase tracking-wide text-[#0b0e1a] sm:text-xl">
+    <section className="py-20">
+      <div className="mx-auto max-w-6xl ">
+        <p className="font-heading text-lg font-extrabold uppercase tracking-wide text-[#0b0e1a] sm:text-xl">
           Distribution Partners
         </p>
         <h2 className="mt-1 text-2xl font-semibold text-[#0b0e1a] sm:text-3xl">

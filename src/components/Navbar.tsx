@@ -39,7 +39,7 @@ export default function Navbar({ theme = "light" }: NavbarProps) {
         </Link>
 
         <ul
-          className={`hidden items-center gap-6 text-xs font-semibold tracking-wide lg:flex ${
+          className={`hidden items-center gap-6 font-heading text-xs font-bold tracking-wide lg:flex ${
             isDark ? "text-white" : "text-white"
           }`}
         >
@@ -57,14 +57,14 @@ export default function Navbar({ theme = "light" }: NavbarProps) {
 
         <div className="hidden items-center gap-3 lg:flex">
           <Link
-            href="/login"
-            className="rounded-full border border-[#f5821f] bg-[#f5821f] px-5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-[#d96f14]"
+            href="#"
+            className="rounded-full border border-[#f5821f] bg-[#f5821f] px-5 py-1.5 font-heading text-xs font-bold tracking-wide text-white transition-colors hover:bg-[#d96f14]"
           >
             LOGIN
           </Link>
           <Link
-            href="/register"
-            className="rounded-full border border-[#f5821f] bg-[#f5821f] px-5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-[#d96f14]"
+            href="#"
+            className="rounded-full border border-[#f5821f] bg-[#f5821f] px-5 py-1.5 font-heading text-xs font-bold tracking-wide text-white transition-colors hover:bg-[#d96f14]"
           >
             REGISTER
           </Link>
@@ -98,7 +98,7 @@ export default function Navbar({ theme = "light" }: NavbarProps) {
 
       {open && (
         <div className="absolute inset-x-0 top-full z-40 border-t border-white/10 bg-[#0b0e1a] shadow-lg lg:hidden">
-          <ul className="flex flex-col gap-1 px-6 py-4 text-sm font-semibold text-white">
+          <ul className="flex flex-col gap-1 px-6 py-4 font-heading text-sm font-bold tracking-wide text-white">
             {links.map((link) => (
               <li key={link.href}>
                 <Link
@@ -113,16 +113,16 @@ export default function Navbar({ theme = "light" }: NavbarProps) {
           </ul>
           <div className="flex items-center gap-3 border-t border-white/10 px-6 py-4">
             <Link
-              href="/login"
+              href="#"
               onClick={() => setOpen(false)}
-              className="flex-1 rounded-full border border-[#f5821f] bg-[#f5821f] px-5 py-2 text-center text-xs font-semibold text-white transition-colors hover:bg-[#d96f14]"
+              className="flex-1 rounded-full border border-[#f5821f] bg-[#f5821f] px-5 py-2 text-center font-heading text-xs font-bold tracking-wide text-white transition-colors hover:bg-[#d96f14]"
             >
               LOGIN
             </Link>
             <Link
-              href="/register"
+              href="#"
               onClick={() => setOpen(false)}
-              className="flex-1 rounded-full border border-[#f5821f] bg-[#f5821f] px-5 py-2 text-center text-xs font-semibold text-white transition-colors hover:bg-[#d96f14]"
+              className="flex-1 rounded-full border border-[#f5821f] bg-[#f5821f] px-5 py-2 text-center font-heading text-xs font-bold tracking-wide text-white transition-colors hover:bg-[#d96f14]"
             >
               REGISTER
             </Link>

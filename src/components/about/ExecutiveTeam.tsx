@@ -61,7 +61,7 @@ export default function ExecutiveTeam() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-white py-20">
+    <section className="py-20">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <h2 className="text-center text-2xl font-bold text-[#0b0e1a] sm:text-3xl">
           Meet the Executive Team

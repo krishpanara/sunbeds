@@ -10,7 +10,7 @@ const partners = [
 
 export default function PartnerEcosystem() {
   return (
-    <section className="bg-white py-16">
+    <section className="py-16">
       <div className="mx-auto max-w-7xl px-6 text-center lg:px-10">
         <h3 className="text-xl font-semibold text-[#0b0e1a] sm:text-2xl">
           Powering a Trusted <span className="text-[#f5821f]">Partner Ecosystem</span>
