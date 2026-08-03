@@ -1,84 +1,82 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-const partners = [
-  { src: "/images/key-tbo.png", alt: "tbo.com" },
-  { src: "/images/key-cheapoair.png", alt: "CheapOair" },
-  { src: "/images/key-secretescapes.png", alt: "Secret Escapes" },
-  { src: "/images/key-hotelcard.png", alt: "HotelCard" },
-  { src: "/images/key-yalago.png", alt: "yalago" },
-  { src: "/images/key-cleartrip.png", alt: "cleartrip" },
-  { src: "/images/key-kiwi.png", alt: "Kiwi.com" },
-];
-
-// SVG viewBox: 1000 x 500, logo at center (500, 250)
+// SVG viewBox: 1000 x 500, hub at center (500, 250)
 const CENTER = { x: 500, y: 250 };
 
-// Manually placed node positions around the center
-const nodePositions = [
-  { x: 100, y: 80 },
-  { x: 300, y: 60 },
-  { x: 700, y: 60 },
-  { x: 900, y: 80 },
-  { x: 100, y: 420 },
-  { x: 300, y: 440 },
-  { x: 700, y: 440 },
+type Node = {
+  key: string;
+  x: number;
+  y: number;
+  r: number;
+  src: string;
+  alt: string;
+};
+
+const nodes: Node[] = [
+  { key: "tbo", x: 100, y: 80, r: 54, src: "/images/key-tbo.png", alt: "tbo.com" },
+  { key: "cheapoair", x: 300, y: 60, r: 54, src: "/images/key-cheapoair.png", alt: "CheapOair" },
+  { key: "secretescapes", x: 700, y: 60, r: 54, src: "/images/key-secretescapes.png", alt: "Secret Escapes" },
+  { key: "hotelcard", x: 900, y: 80, r: 54, src: "/images/key-hotelcard.png", alt: "HotelCard" },
+  { key: "yalago", x: 100, y: 420, r: 54, src: "/images/key-yalago.png", alt: "yalago" },
+  { key: "cleartrip", x: 300, y: 440, r: 54, src: "/images/key-cleartrip.png", alt: "cleartrip" },
+  { key: "kiwi", x: 700, y: 440, r: 54, src: "/images/key-kiwi.png", alt: "Kiwi.com" },
 ];
 
-// Build an L-shaped (circuit-style) path from center to each node
-function buildPath(to: { x: number; y: number }) {
-  const mid = to.x; // vertical bend at node's x
-  return `M ${CENTER.x} ${CENTER.y} L ${mid} ${CENTER.y} L ${to.x} ${to.y}`;
+// Circuit-breaker style trace: horizontal run, 45deg chamfer, straight run into the node
+function buildPath(node: Node) {
+  const dx = node.x - CENTER.x;
+  const dy = node.y - CENTER.y;
+  const dirX = dx >= 0 ? 1 : -1;
+  const dirY = dy >= 0 ? 1 : -1;
+  const chamfer = Math.min(70, Math.abs(dy));
+  const bendX = node.x - dirX * chamfer;
+  const chamferY = CENTER.y + dirY * chamfer;
+  return `M ${CENTER.x} ${CENTER.y} L ${bendX} ${CENTER.y} L ${node.x} ${chamferY} L ${node.x} ${node.y}`;
 }
 
-const PULSE_DURATION = 1.8; // seconds per pulse
-const STAGGER = 0.28; // seconds between each line's pulse start
+const PULSE_DURATION = 1.6;
+const STAGGER = 0.3;
 
 export default function KeyPartnersLogos() {
-  const [lit, setLit] = useState<boolean[]>(partners.map(() => false));
-  const svgRef = useRef<SVGSVGElement>(null);
+  const [lit, setLit] = useState<boolean[]>(nodes.map(() => false));
 
-  // Light up each node when its pulse arrives
   useEffect(() => {
-    partners.forEach((_, i) => {
-      const delay = (i * STAGGER + PULSE_DURATION * 0.85) * 1000;
-      const interval = partners.length * STAGGER * 1000 + PULSE_DURATION * 1000;
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+    const intervals: ReturnType<typeof setInterval>[] = [];
 
-      // initial trigger
-      const t = setTimeout(() => {
+    nodes.forEach((_, i) => {
+      const delay = (i * STAGGER + PULSE_DURATION * 0.85) * 1000;
+      const cycle = nodes.length * STAGGER * 1000 + PULSE_DURATION * 1000;
+
+      const light = () =>
         setLit((prev) => {
           const next = [...prev];
           next[i] = true;
           return next;
         });
-      }, delay);
-
-      // repeat
-      const iv = setInterval(() => {
+      const unlight = () =>
         setLit((prev) => {
           const next = [...prev];
           next[i] = false;
           return next;
         });
-        setTimeout(() => {
-          setLit((prev) => {
-            const next = [...prev];
-            next[i] = true;
-            return next;
-          });
-        }, 120);
-      }, interval);
 
-      return () => {
-        clearTimeout(t);
-        clearInterval(iv);
-      };
+      timeouts.push(setTimeout(light, delay));
+      intervals.push(
+        setInterval(() => {
+          unlight();
+          timeouts.push(setTimeout(light, 120));
+        }, cycle)
+      );
     });
-  }, []);
 
-  const totalCycle = `${(partners.length * STAGGER + PULSE_DURATION).toFixed(2)}s`;
+    return () => {
+      timeouts.forEach(clearTimeout);
+      intervals.forEach(clearInterval);
+    };
+  }, []);
 
   return (
     <section className="pb-16 pt-4">
@@ -86,172 +84,119 @@ export default function KeyPartnersLogos() {
         <h2 className="text-xl font-extrabold tracking-wide text-[#0b0e1a]">KEY PARTNERS</h2>
 
         <div className="relative mt-8 w-full select-none">
-          {/* SVG circuit layer */}
-          <svg
-            ref={svgRef}
-            viewBox="0 0 1000 500"
-            className="absolute inset-0 h-full w-full"
-            aria-hidden
-          >
-            <defs>
-              {/* Glow filter for lit nodes */}
-              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="4" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
+          <div className="relative" style={{ paddingTop: "50%" /* matches viewBox 1000x500 */ }}>
+            <svg viewBox="0 0 1000 500" className="absolute inset-0 h-full w-full" aria-hidden>
+              <defs>
+                <filter id="kp-glow" x="-60%" y="-60%" width="220%" height="220%">
+                  <feGaussianBlur stdDeviation="5" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
 
-              {/* Pulse gradient moving along path */}
-              <linearGradient id="pulse-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#f5821f" stopOpacity="0" />
-                <stop offset="50%" stopColor="#ffc93f" stopOpacity="1" />
-                <stop offset="100%" stopColor="#f5821f" stopOpacity="0" />
-              </linearGradient>
-            </defs>
+              {nodes.map((node, i) => {
+                const d = buildPath(node);
+                const delay = `${(i * STAGGER).toFixed(2)}s`;
+                return (
+                  <g key={node.key}>
+                    {/* Static dim trace */}
+                    <path d={d} fill="none" stroke="#c1703f" strokeWidth="1.5" strokeOpacity="0.4" />
 
-            {partners.map((_, i) => {
-              const d = buildPath(nodePositions[i]);
-              const delay = `${(i * STAGGER).toFixed(2)}s`;
-              return (
-                <g key={i}>
-                  {/* Static dim trace */}
-                  <path
-                    d={d}
-                    fill="none"
-                    stroke="#f5821f"
-                    strokeWidth="1.2"
-                    strokeOpacity="0.18"
-                  />
-
-                  {/* Animated pulse dot travelling along the path */}
-                  <path
-                    d={d}
-                    fill="none"
-                    stroke="#ffc93f"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeDasharray="18 1000"
-                    strokeDashoffset="1000"
-                    strokeOpacity="0.95"
-                  >
-                    <animate
-                      attributeName="stroke-dashoffset"
-                      from="1000"
-                      to="-18"
-                      dur={`${PULSE_DURATION}s`}
-                      begin={delay}
-                      repeatCount="indefinite"
-                      calcMode="spline"
-                      keySplines="0.4 0 0.6 1"
-                      keyTimes="0;1"
-                    />
-                    <animate
-                      attributeName="stroke-opacity"
-                      values="0;1;1;0"
-                      keyTimes="0;0.1;0.85;1"
-                      dur={`${PULSE_DURATION}s`}
-                      begin={delay}
-                      repeatCount="indefinite"
-                    />
-                  </path>
-
-                  {/* Node ring */}
-                  <circle
-                    cx={nodePositions[i].x}
-                    cy={nodePositions[i].y}
-                    r="38"
-                    fill="#0b1220"
-                    stroke={lit[i] ? "#ffc93f" : "#f5821f"}
-                    strokeWidth={lit[i] ? "2.5" : "1.2"}
-                    strokeOpacity={lit[i] ? 1 : 0.35}
-                    filter={lit[i] ? "url(#glow)" : undefined}
-                    style={{ transition: "stroke 0.15s, stroke-width 0.15s, stroke-opacity 0.15s" }}
-                  />
-
-                  {/* Ping ring when lit */}
-                  {lit[i] && (
-                    <circle
-                      cx={nodePositions[i].x}
-                      cy={nodePositions[i].y}
-                      r="38"
+                    {/* Animated pulse travelling from the hub out to the node */}
+                    <path
+                      d={d}
                       fill="none"
                       stroke="#ffc93f"
-                      strokeWidth="1.5"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeDasharray="20 1400"
+                      strokeDashoffset="1400"
+                      strokeOpacity="0.95"
                     >
-                      <animate attributeName="r" from="38" to="56" dur="0.6s" fill="freeze" />
-                      <animate attributeName="stroke-opacity" from="0.8" to="0" dur="0.6s" fill="freeze" />
-                    </circle>
-                  )}
-                </g>
-              );
-            })}
+                      <animate
+                        attributeName="stroke-dashoffset"
+                        from="1400"
+                        to="-20"
+                        dur={`${PULSE_DURATION}s`}
+                        begin={delay}
+                        repeatCount="indefinite"
+                        calcMode="spline"
+                        keySplines="0.4 0 0.6 1"
+                        keyTimes="0;1"
+                      />
+                      <animate
+                        attributeName="stroke-opacity"
+                        values="0;1;1;0"
+                        keyTimes="0;0.1;0.85;1"
+                        dur={`${PULSE_DURATION}s`}
+                        begin={delay}
+                        repeatCount="indefinite"
+                      />
+                    </path>
 
-            {/* Center logo ring */}
-            <circle
-              cx={CENTER.x}
-              cy={CENTER.y}
-              r="52"
-              fill="#0b1220"
-              stroke="#f5821f"
-              strokeWidth="1.8"
-              strokeOpacity="0.6"
-            />
-            <circle cx={CENTER.x} cy={CENTER.y} r="52" fill="none" stroke="#ffc93f" strokeWidth="1.2" strokeOpacity="0.25">
-              <animate attributeName="r" values="52;62;52" dur={totalCycle} repeatCount="indefinite" />
-              <animate attributeName="stroke-opacity" values="0.25;0.6;0.25" dur={totalCycle} repeatCount="indefinite" />
-            </circle>
-          </svg>
+                    {/* Ping ring on arrival */}
+                    {lit[i] && (
+                      <circle cx={node.x} cy={node.y} r={node.r} fill="none" stroke="#ffc93f" strokeWidth="2">
+                        <animate attributeName="r" from={node.r} to={node.r + 20} dur="0.6s" fill="freeze" />
+                        <animate attributeName="stroke-opacity" from="0.9" to="0" dur="0.6s" fill="freeze" />
+                      </circle>
+                    )}
 
-          {/* Absolutely positioned partner logos over SVG nodes */}
-          <div
-            className="relative"
-            style={{ paddingTop: "50%" /* matches viewBox 1000x500 */ }}
-          >
-            {partners.map((p, i) => {
-              const px = (nodePositions[i].x / 1000) * 100;
-              const py = (nodePositions[i].y / 500) * 100;
+                    {/* Node circle */}
+                    <circle
+                      cx={node.x}
+                      cy={node.y}
+                      r={node.r}
+                      fill="#ffffff"
+                      stroke={lit[i] ? "#ffc93f" : "#c1703f"}
+                      strokeWidth={lit[i] ? "3.5" : "2"}
+                      filter={lit[i] ? "url(#kp-glow)" : undefined}
+                      style={{ transition: "stroke 0.15s, stroke-width 0.15s" }}
+                    />
+                  </g>
+                );
+              })}
+            </svg>
+
+            {/* Partner logo images overlaid on top of the SVG node circles */}
+            {nodes.map((node, i) => {
+              const px = (node.x / 1000) * 100;
+              const py = (node.y / 500) * 100;
               return (
                 <div
-                  key={p.alt}
+                  key={node.key}
                   className="absolute flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
-                  style={{ left: `${px}%`, top: `${py}%`, width: "7.2%", height: "14.4%" }}
+                  style={{ left: `${px}%`, top: `${py}%`, width: "5%", height: "10%" }}
                 >
-                  <span className="relative block h-full w-full">
-                    <Image
-                      src={p.src}
-                      alt={p.alt}
-                      fill
-                      className="object-contain"
-                      sizes="80px"
-                      style={{
-                        filter: lit[i]
-                          ? "brightness(1.15) drop-shadow(0 0 6px #ffc93f)"
-                          : "brightness(0.85)",
-                        transition: "filter 0.15s",
-                      }}
-                    />
-                  </span>
+                  {/* Plain img: avoids colliding with other next/image requests for the
+                      same source file at a different width in the dev image optimizer */}
+                  <img
+                    src={node.src}
+                    alt={node.alt}
+                    className="h-full w-full object-contain"
+                    style={{
+                      filter: lit[i] ? "drop-shadow(0 0 6px #ffc93f)" : undefined,
+                      transition: "filter 0.15s",
+                    }}
+                  />
                 </div>
               );
             })}
 
-            {/* Center SunBeds logo */}
+            {/* Center backdrop so the light logo stays legible on the white page background */}
             <div
-              className="absolute flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
-              style={{ left: "50%", top: "50%", width: "10%", height: "20%" }}
+              className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-black"
+              style={{ left: "50%", top: "50%", width: "20%", height: "40%" }}
+            />
+            <div
+              className="absolute -translate-x-1/2 -translate-y-1/2"
+              style={{ left: "50%", top: "50%", width: "18%", height: "9.4%" }}
             >
-              <span className="relative block h-full w-full">
-                <Image
-                  src="/images/logo.png"
-                  alt="SunBeds"
-                  fill
-                  className="object-contain"
-                  sizes="100px"
-                  style={{ filter: "brightness(0) invert(1)" }}
-                />
-              </span>
+              {/* Plain img: avoids colliding with other next/image requests for the
+                  same source file at a different width in the dev image optimizer */}
+              <img src="/images/logo.png" alt="SunBeds" className="h-full w-full object-contain" />
             </div>
           </div>
         </div>
