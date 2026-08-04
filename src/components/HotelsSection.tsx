@@ -78,7 +78,10 @@ export default function HotelsSection() {
             <div
               className="
               relative
-              h-130
+              flex
+              flex-row
+              gap-4
+              h-auto
               w-full
               max-w-80
               sm:h-145
@@ -91,16 +94,17 @@ export default function HotelsSection() {
 
               {/* Bottom Image */}
 
-              <div className="absolute bottom-0 left-0 z-10">
+              <div className="relative flex-1 sm:absolute sm:bottom-0 sm:left-0 sm:z-10">
 
                 <div
                   className="
                   overflow-hidden
-                  rounded-[30px]
+                  rounded-[20px]
                   border-2
                   border-[#F58220]
                   bg-white
                   shadow-[0_25px_60px_rgba(0,0,0,0.18)]
+                  sm:rounded-[30px]
                 "
                 >
 
@@ -110,8 +114,8 @@ export default function HotelsSection() {
                     width={260}
                     height={340}
                     className="
-                    h-[300px]
-                    w-[220px]
+                    h-[210px]
+                    w-full
                     object-cover
                     sm:h-[330px]
                     sm:w-[240px]
@@ -126,16 +130,17 @@ export default function HotelsSection() {
 
               {/* Top Image */}
 
-              <div className="absolute right-0 top-0 z-20">
+              <div className="relative flex-1 sm:absolute sm:right-0 sm:top-0 sm:z-20">
 
                 <div
                   className="
                   overflow-hidden
-                  rounded-[30px]
+                  rounded-[20px]
                   border-2
                   border-[#F58220]
                   bg-white
                   shadow-[0_30px_70px_rgba(0,0,0,0.22)]
+                  sm:rounded-[30px]
                 "
                 >
 
@@ -145,8 +150,8 @@ export default function HotelsSection() {
                     width={285}
                     height={410}
                     className="
-                    h-[340px]
-                    w-[240px]
+                    h-[210px]
+                    w-full
                     object-cover
                     sm:h-[380px]
                     sm:w-[260px]
