@@ -107,7 +107,12 @@ export async function sendContactEmail(data: ContactFormData) {
   const to = CONTACT_TO_EMAIL || SMTP_USER;
 
   if (!SMTP2GO_API_KEY || !to || !SMTP_USER) {
-    throw new Error("SMTP2GO environment variables are not configured");
+    const missing = [
+      !SMTP2GO_API_KEY && "SMTP2GO_API_KEY",
+      !to && "CONTACT_TO_EMAIL/SMTP_USER",
+      !SMTP_USER && "SMTP_USER",
+    ].filter(Boolean);
+    throw new Error(`Missing env vars: ${missing.join(", ")}`);
   }
 
   const response = await fetch(SMTP2GO_API_URL, {
