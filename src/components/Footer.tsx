@@ -61,7 +61,7 @@ export default function Footer() {
         <div className="mt-10 border-t border-[#f5821f]" />
 
         <div className="mt-6 flex flex-col items-start justify-between gap-4 text-xs tracking-wide text-white/70 sm:flex-row sm:items-center">
-          <p>2026 Sunbeds. All rights reserved.</p>
+          <p>2026 SunBeds. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="#" className="hover:text-white">
               Cookies Policy

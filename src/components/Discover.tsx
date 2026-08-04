@@ -13,7 +13,7 @@ export default function Discover() {
         </p>
 
         <h3 className="mt-16 font-heading text-2xl font-extrabold tracking-wide text-[#0b0e1a]">
-          CREATING CONNECTIONS <span className="text-[#f5821f]">WITHOUT BOUNDERIES</span>
+          CREATING CONNECTIONS <span className="text-[#f5821f]">WITHOUT BOUNDARIES</span>
         </h3>
 
         <div className="mt-12 flex flex-col items-start gap-8 sm:flex-row sm:items-center sm:gap-10">
