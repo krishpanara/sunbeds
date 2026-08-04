@@ -75,9 +75,7 @@ export default function Navbar({ theme = "light" }: NavbarProps) {
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-expanded={open}
-          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors lg:hidden ${
-            isDark ? "border-white/60 text-white" : "border-white/60 text-white"
-          }`}
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#f5c331] text-[#f5c331] transition-colors lg:hidden"
         >
           <svg
             viewBox="0 0 24 24"
