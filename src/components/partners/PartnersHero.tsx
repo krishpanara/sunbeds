@@ -16,9 +16,11 @@ export default function PartnersHero() {
             <p className="mt-2 text-base font-semibold text-[#0b0e1a]">
               One Platform for Direct Hotel
             </p>
-            <Link href="/contact" className={`mt-5 ${ctaClass}`}>
-              Request a demo
-            </Link>
+            <div className="text-center lg:text-left">
+              <Link href="/contact" className={`mt-5 ${ctaClass}`}>
+                Request a demo
+              </Link>
+            </div>
 
             <div className="mt-10">
               <h2 className="text-xl font-extrabold tracking-wide text-[#0b0e1a]">OUR PARTNERS</h2>
@@ -30,9 +32,11 @@ export default function PartnersHero() {
                 e-commerce potential — while maintaining greater transparency,
                 control, and flexibility at every step.
               </p>
-              <Link href="/contact" className={`mt-6 ${ctaClass}`}>
-                Contact Us
-              </Link>
+              <div className="text-center lg:text-left">
+                <Link href="/contact" className={`mt-6 ${ctaClass}`}>
+                  Contact Us
+                </Link>
+              </div>
             </div>
           </div>
 

@@ -16,7 +16,7 @@ export default function Newsletter() {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#05070f]/10 via-[#05070f]/40 to-[#05070f]/80" />
       <div className="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:px-10">
-        <div className="flex flex-col gap-4">
+        <div className="order-2 flex flex-col gap-4 lg:order-1">
           <input
             type="text"
             placeholder="Company Name*"
@@ -47,7 +47,7 @@ export default function Newsletter() {
             </label>
           </div>
 
-          <div className="mt-2 flex justify-end">
+          <div className="mt-2 flex justify-center lg:justify-end">
             <button
               type="button"
               className="w-fit rounded-full bg-gradient-to-r from-[#f5821f] to-[#ffc93f] px-15 py-2 text-sm font-semibold text-white shadow-md transition-opacity hover:opacity-90"
@@ -57,7 +57,7 @@ export default function Newsletter() {
           </div>
         </div>
 
-        <div className="flex items-start justify-center lg:justify-end">
+        <div className="order-1 flex items-start justify-center lg:order-2 lg:justify-end">
           <h3 className="text-2xl font-semibold text-white lg:text-3xl">
             Subscribe to our <span className="text-[#faf8f7]">Newsletter</span>
           </h3>

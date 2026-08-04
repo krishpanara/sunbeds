@@ -47,7 +47,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <ul className="flex flex-col items-center gap-5 whitespace-nowrap text-center font-heading text-sm font-bold uppercase tracking-wide lg:items-start lg:text-left">
+          <ul className="mx-auto flex w-fit flex-col items-start gap-5 whitespace-nowrap text-left font-heading text-sm font-bold uppercase tracking-wide lg:mx-0">
             {footerLinks.map((link) => (
               <li key={link.href}>
                 <Link href={link.href} className="text-white transition-colors hover:text-[#f5821f]">
