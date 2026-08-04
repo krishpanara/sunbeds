@@ -31,7 +31,7 @@ export default function Fingertips() {
 
         <div className="relative mx-auto aspect-3/2 w-full max-w-md">
           <Image
-            src="/images/fingertips-diagram2.jpeg"
+            src="/images/fingertips-diagram3.png"
             alt="One platform connecting potential guests, OTAs, and hotels through a single contract"
             fill
             className="object-contain"
