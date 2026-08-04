@@ -43,7 +43,10 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Failed to send contact email:", error);
     return NextResponse.json(
-      { error: "Something went wrong while sending your message. Please try again later." },
+      {
+        error: "Something went wrong while sending your message. Please try again later.",
+        debug: error instanceof Error ? error.message : String(error),
+      },
       { status: 502 }
     );
   }
