@@ -9,7 +9,7 @@ const team = [
     credentials: "MBA, MPA",
     role: "Founder & CEO",
     company: "SunBeds Technology",
-    photo: "/images/team-reginald.webp",
+    photo: "/images/team-rafael.webp",
     bio: [
       "Reginald Go is a hospitality entrepreneur and business leader with extensive international experience in hotel operations, technology, and digital distribution. He is the Founder and CEO of SunBeds Technology, and the Founder of Cocotel Hotels & Resorts, an online hotel management company with 300+ properties across the Philippines and Indonesia, as well as Great Beds Network and Nusatel Hospitality Group in Jakarta.",
       "Reginald began his hospitality career with leading global hotel groups including Accor, IHG Hotels & Resorts, and Marriott International, with professional experience across Qatar and Abu Dhabi. He graduated Cum Laude from Trinity University of Asia and holds an MBA from James Cook University, Australia.",
@@ -21,7 +21,7 @@ const team = [
     credentials: "MBA, MCom",
     role: "Chairman & Co-Founder",
     company: "SunBeds Technology",
-    photo: "/images/team-rafael.webp",
+    photo: "/images/team-reginald.webp",
     bio: [
       "Rafael Daniel Jouwena serves as Chairman of SunBeds, where he provides strategic direction, corporate governance, and leadership as the company builds a technology-driven hotel distribution network across Southeast Asia.",
       "Before entering the hospitality and technology sectors, Rafael developed extensive experience in finance, investment management, financial research, and corporate operations. He previously held leadership and analytical roles at FactSet, JPMorgan Chase, SC Johnson, and Thomson Reuters. His professional background includes fund accounting, investment research, financial analysis, team management, and business strategy.",
