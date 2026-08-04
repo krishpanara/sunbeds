@@ -38,7 +38,7 @@ export default function PartnersHero() {
 
           <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl shadow-lg">
             <Image
-              src="/images/partners-satellite.webp"
+              src="/images/satelightimage.png"
               alt="Satellites orbiting Earth, representing global connectivity"
               fill
               className="object-cover"

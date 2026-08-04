@@ -26,6 +26,7 @@ const fontHelvetica = localFont({
 });
 
 export const metadata: Metadata = {
+  icons: { icon: "/favicon.png" },
   title: "Sunbeds | Your Center for Distribution",
   description:
     "Sunbeds is a next-generation hotel distribution platform that brings hotels and global distribution partners together through one intelligent connection.",
