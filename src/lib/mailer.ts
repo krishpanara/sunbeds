@@ -1,9 +1,6 @@
-import nodemailer from "nodemailer";
-import { readFileSync } from "fs";
-import path from "path";
-
-const LOGO_PATH = path.join(process.cwd(), "public", "images", "logo.png");
-const LOGO_CID = "sunbeds-logo";
+const SMTP2GO_API_URL = "https://api.smtp2go.com/v3/email/send";
+const SITE_URL = process.env.SITE_URL || "https://sunbedstechnology.com";
+const LOGO_URL = `${SITE_URL}/images/logo.png`;
 
 export type ContactFormData = {
   name: string;
@@ -15,30 +12,6 @@ export type ContactFormData = {
   phone?: string;
   message: string;
 };
-
-let transporter: ReturnType<typeof nodemailer.createTransport> | null = null;
-
-function getTransporter() {
-  if (transporter) return transporter;
-
-  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD } = process.env;
-
-  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASSWORD) {
-    throw new Error("SMTP environment variables are not configured");
-  }
-
-  transporter = nodemailer.createTransport({
-    host: SMTP_HOST,
-    port: Number(SMTP_PORT),
-    secure: false,
-    auth: {
-      user: SMTP_USER,
-      pass: SMTP_PASSWORD,
-    },
-  });
-
-  return transporter;
-}
 
 function escapeHtml(value: string) {
   return value
@@ -69,7 +42,7 @@ function contactEmailHtml(data: ContactFormData) {
           <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:12px;overflow:hidden;">
             <tr>
               <td style="background:#0b0e1a;padding:24px 32px;">
-                <img src="cid:${LOGO_CID}" alt="SunBeds" height="36" style="height:36px;width:auto;display:block;" />
+                <img src="${LOGO_URL}" alt="SunBeds" height="36" style="height:36px;width:auto;display:block;" />
               </td>
             </tr>
             <tr>
@@ -130,22 +103,35 @@ function contactEmailText(data: ContactFormData) {
 }
 
 export async function sendContactEmail(data: ContactFormData) {
-  const to = process.env.CONTACT_TO_EMAIL || process.env.SMTP_USER;
-  const from = process.env.SMTP_USER;
+  const { SMTP2GO_API_KEY, CONTACT_TO_EMAIL, SMTP_USER } = process.env;
+  const to = CONTACT_TO_EMAIL || SMTP_USER;
 
-  await getTransporter().sendMail({
-    from: `"SunBeds Website" <${from}>`,
-    to,
-    replyTo: data.email,
-    subject: `New contact form submission from ${data.name}`,
-    text: contactEmailText(data),
-    html: contactEmailHtml(data),
-    attachments: [
-      {
-        filename: "logo.png",
-        content: readFileSync(LOGO_PATH),
-        cid: LOGO_CID,
-      },
-    ],
+  if (!SMTP2GO_API_KEY || !to || !SMTP_USER) {
+    throw new Error("SMTP2GO environment variables are not configured");
+  }
+
+  const response = await fetch(SMTP2GO_API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      api_key: SMTP2GO_API_KEY,
+      to: [to],
+      sender: `SunBeds Website <${SMTP_USER}>`,
+      subject: `New contact form submission from ${data.name}`,
+      text_body: contactEmailText(data),
+      html_body: contactEmailHtml(data),
+      custom_headers: [{ header: "Reply-To", value: data.email }],
+    }),
   });
+
+  const result = await response.json();
+
+  if (!response.ok || result?.data?.failed > 0 || result?.data?.error) {
+    throw new Error(
+      `SMTP2GO API error: ${JSON.stringify(result?.data ?? result)}`
+    );
+  }
 }
