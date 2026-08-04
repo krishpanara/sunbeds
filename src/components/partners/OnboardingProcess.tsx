@@ -28,13 +28,15 @@ export default function OnboardingProcess() {
   return (
     <section className="pb-20">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
-        <h2 className="text-xl font-extrabold tracking-wide text-[#0b0e1a]">OUR ONBOARDING PROCESS</h2>
-        <Link
-          href="/contact"
-          className="mt-4 inline-block rounded-full bg-gradient-to-r from-[#f5821f] to-[#ffc93f] px-7 py-3 text-sm font-semibold text-white shadow-md transition-opacity hover:opacity-90"
-        >
-          Contact Us
-        </Link>
+        <h2 className="text-center text-xl font-extrabold tracking-wide text-[#0b0e1a] lg:text-left">OUR ONBOARDING PROCESS</h2>
+        <div className="text-center lg:text-left">
+          <Link
+            href="/contact"
+            className="mt-4 inline-block rounded-full bg-gradient-to-r from-[#f5821f] to-[#ffc93f] px-7 py-3 text-sm font-semibold text-white shadow-md transition-opacity hover:opacity-90"
+          >
+            Contact Us
+          </Link>
+        </div>
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
           {steps.map((s) => (

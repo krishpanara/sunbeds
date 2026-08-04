@@ -46,7 +46,7 @@ export default function PartnerLogoStrips() {
         <h3 className="mt-16 text-xl font-bold text-[#0b0e1a]">
           Integrated with <span className="text-[#f5821f]">Tech Partners</span>
         </h3>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
+        <div className="mt-8 flex flex-col items-center justify-center gap-6 sm:flex-row sm:flex-wrap">
           {techPartners.map((logo) => (
             <div key={logo.alt} className="flex h-20 w-44 items-center justify-center rounded-xl p-4">
               <span className="relative block h-full w-full">
