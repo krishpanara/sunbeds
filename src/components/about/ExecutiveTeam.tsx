@@ -48,7 +48,7 @@ const team = [
     credentials: "",
     role: "Chief Commercial Officer",
     company: "SunBeds Technology",
-    photo: "/images/team-richelle.webp",
+    photo: "/images/missrichelle.png",
     bio: [
       "Richelle Panulaya is the Country Manager of Cocotel, bringing over a decade of experience across hospitality operations, revenue management, and hotel e-commerce. She currently leads commercial strategy, operations, and revenue performance for the group.",
       "With over a decade of experience in hotel revenue management, forecasting, and operations, Richelle has built a career spanning some of the most respected names in Philippine and regional hospitality, including RedDoorz, Alphaland Development, Shangri-La Hotels and Resorts, Frasers Hospitality, and Seda Hotels. This diverse experience has given her a well-rounded foundation in revenue optimization, forecasting, digital marketing, and guest experience management, equipping her with a sharp commercial instinct across both branded and independent hospitality environments.",
