@@ -40,3 +40,23 @@ h6 {
   animation: marquee-left 28s linear infinite;
 }
 
+@keyframes circuit-flow {
+  to { stroke-dashoffset: -24; }
+}
+
+.circuit-line {
+  stroke-dasharray: 6 6;
+  animation: circuit-flow 1.4s linear infinite;
+}
+
+@keyframes circuit-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+.circuit-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: circuit-pulse 1.8s ease-in-out infinite;
+}
+

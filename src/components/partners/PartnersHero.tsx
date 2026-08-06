@@ -10,7 +10,7 @@ export default function PartnersHero() {
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="grid items-start gap-12 lg:grid-cols-2">
           <div>
-            <h1 className="whitespace-nowrap text-base font-extrabold tracking-wide text-[#0b0e1a] sm:text-lg lg:text-xl">
+            <h1 className="text-base font-extrabold tracking-wide text-[#0b0e1a] sm:text-lg lg:whitespace-nowrap lg:text-xl">
               DISTRIBUTION NETWORK ACTIVE BUYERS
             </h1>
             <p className="mt-2 text-base font-semibold text-[#0b0e1a]">
@@ -40,7 +40,7 @@ export default function PartnersHero() {
             </div>
           </div>
 
-          <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl shadow-lg">
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl shadow-lg lg:aspect-[3/2]">
             <Image
               src="/images/satelightimage.png"
               alt="Satellites orbiting Earth, representing global connectivity"

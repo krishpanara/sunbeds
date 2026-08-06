@@ -1,18 +1,17 @@
-import IconBadge from "./partners/IconBadge";
+import Image from "next/image";
 
 const reasons = [
   {
-    lines: ["One Contract", "One Contact", "One Pricing", "One Technology"],
+    src: "/images/onecontract.png",
+    alt: "One Contract, One Contact, One Pricing, One Technology",
   },
   {
-    lines: ["Global Expansion", "Global Reach", "Global Distribution"],
+    src: "/images/globalexpansion.png",
+    alt: "Global Expansion, Global Reach, Global Distribution",
   },
   {
-    lines: [
-      "Maximize Hotel Revenue",
-      "Maximize Hotel Occupancy",
-      "Maximize Hotel's Ecommerce Business",
-    ],
+    src: "/images/maximizehotelrevenue.png",
+    alt: "Maximize Hotel Revenue, Maximize Hotel Occupancy, Maximize Hotel's Ecommerce Business",
   },
 ];
 
@@ -27,22 +26,19 @@ export default function WhyChooseUs() {
         </h2>
 
         {/* Cards */}
-        <div className="mt-12 flex flex-wrap justify-center gap-6 sm:gap-10 lg:gap-38">
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-3 lg:gap-8">
           {reasons.map((reason) => (
             <div
-              key={reason.lines[0]}
-              className="flex w-64 flex-col items-center justify-center rounded-2xl border border-[#f5821f]/40 bg-white px-4 py-8 shadow-sm transition-shadow hover:shadow-md"
+              key={reason.src}
+              className="relative aspect-[4/3] w-full transition-transform hover:-translate-y-1 sm:aspect-[3/2]"
             >
-              <div className="flex flex-col gap-2">
-                {reason.lines.map((line) => (
-                  <p
-                    key={line}
-                    className="text-[15px] font-normal leading-snug text-[#0b0e1a] sm:text-base"
-                  >
-                    {line}
-                  </p>
-                ))}
-              </div>
+              <Image
+                src={reason.src}
+                alt={reason.alt}
+                fill
+                className="object-contain"
+                sizes="(min-width: 1024px) 400px, 90vw"
+              />
             </div>
           ))}
         </div>
@@ -50,4 +46,3 @@ export default function WhyChooseUs() {
     </section>
   );
 }
-
