@@ -13,6 +13,13 @@ export type ContactFormData = {
   message: string;
 };
 
+export type NewsletterFormData = {
+  name: string;
+  email: string;
+  company?: string;
+  country?: string;
+};
+
 function escapeHtml(value: string) {
   return value
     .replace(/&/g, "&amp;")
@@ -102,7 +109,63 @@ function contactEmailText(data: ContactFormData) {
     .join("\n");
 }
 
-export async function sendContactEmail(data: ContactFormData) {
+function newsletterEmailHtml(data: NewsletterFormData) {
+  return `
+<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f4f4f6;font-family:Arial,Helvetica,sans-serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f6;padding:32px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:12px;overflow:hidden;">
+            <tr>
+              <td style="background:#0b0e1a;padding:24px 32px;">
+                <img src="${LOGO_URL}" alt="SunBeds" height="36" style="height:36px;width:auto;display:block;" />
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:28px 32px 8px;">
+                <h1 style="margin:0 0 6px;font-size:18px;color:#0b0e1a;">New Newsletter Subscription</h1>
+                <p style="margin:0;font-size:13px;color:#8a8f98;">Someone subscribed to the SunBeds newsletter from the website.</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:12px 32px 28px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #eee;border-radius:8px;overflow:hidden;">
+                  ${row("Name", data.name)}
+                  ${row("Email", data.email)}
+                  ${row("Company", data.company)}
+                  ${row("Country", data.country)}
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="background:#faf7f2;padding:16px 32px;border-top:1px solid #f0e5d8;">
+                <p style="margin:0;font-size:11px;color:#8a8f98;">Sent automatically from the newsletter form at sunbedstechnology.com</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+}
+
+function newsletterEmailText(data: NewsletterFormData) {
+  return [
+    "New Newsletter Subscription",
+    "",
+    `Name: ${data.name}`,
+    `Email: ${data.email}`,
+    data.company ? `Company: ${data.company}` : null,
+    data.country ? `Country: ${data.country}` : null,
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
+function getSmtp2goCredentials() {
   const { SMTP2GO_API_KEY, CONTACT_TO_EMAIL, SMTP_USER } = process.env;
   const to = CONTACT_TO_EMAIL || SMTP_USER;
 
@@ -115,6 +178,17 @@ export async function sendContactEmail(data: ContactFormData) {
     throw new Error(`Missing env vars: ${missing.join(", ")}`);
   }
 
+  return { apiKey: SMTP2GO_API_KEY, to, sender: SMTP_USER };
+}
+
+async function sendViaSmtp2go(options: {
+  subject: string;
+  textBody: string;
+  htmlBody: string;
+  replyTo: string;
+}) {
+  const { apiKey, to, sender } = getSmtp2goCredentials();
+
   const response = await fetch(SMTP2GO_API_URL, {
     method: "POST",
     headers: {
@@ -122,13 +196,13 @@ export async function sendContactEmail(data: ContactFormData) {
       Accept: "application/json",
     },
     body: JSON.stringify({
-      api_key: SMTP2GO_API_KEY,
+      api_key: apiKey,
       to: [to],
-      sender: `SunBeds Website <${SMTP_USER}>`,
-      subject: `New contact form submission from ${data.name}`,
-      text_body: contactEmailText(data),
-      html_body: contactEmailHtml(data),
-      custom_headers: [{ header: "Reply-To", value: data.email }],
+      sender: `SunBeds Website <${sender}>`,
+      subject: options.subject,
+      text_body: options.textBody,
+      html_body: options.htmlBody,
+      custom_headers: [{ header: "Reply-To", value: options.replyTo }],
     }),
   });
 
@@ -139,4 +213,22 @@ export async function sendContactEmail(data: ContactFormData) {
       `SMTP2GO API error: ${JSON.stringify(result?.data ?? result)}`
     );
   }
+}
+
+export async function sendContactEmail(data: ContactFormData) {
+  await sendViaSmtp2go({
+    subject: `New contact form submission from ${data.name}`,
+    textBody: contactEmailText(data),
+    htmlBody: contactEmailHtml(data),
+    replyTo: data.email,
+  });
+}
+
+export async function sendNewsletterEmail(data: NewsletterFormData) {
+  await sendViaSmtp2go({
+    subject: `New newsletter subscription from ${data.name}`,
+    textBody: newsletterEmailText(data),
+    htmlBody: newsletterEmailHtml(data),
+    replyTo: data.email,
+  });
 }
